@@ -1,51 +1,63 @@
-
-// server.js
-
-// set up ======================================================================
-// get all the tools we need
-var express  = require('express');
-var session  = require('express-session');
-var cookieParser = require('cookie-parser');
+var express = require('express');
+var app = express();
+var passport   = require('passport');
+var session    = require('express-session');
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var app      = express();
-var port     = process.env.PORT || 8080;
+var env = require('dotenv').load();
+var exphbs = require('express-handlebars');
 
-var passport = require('passport');
-var flash    = require('connect-flash');
-
-// configuration ===============================================================
-// connect to our database
-
-require('./config/passport')(passport); // pass passport for configuration
-
-
-
-// set up our express application
-app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.set('view engine', 'ejs'); // set up ejs for templating
 
-// required for passport
-app.use(session({
-	secret: 'vidyapathaisalwaysrunning',
-	resave: true,
-	saveUninitialized: true
- } )); // session secret
+// For Passport
+ 
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+ 
 app.use(passport.initialize());
+ 
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+
+//For Handlebars
+app.set('views', './app/views');
+app.engine('hbs', exphbs({
+    extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
+//Models
+var models = require("./app/models");
+
+//Routes
+var authRoute = require('./app/routes/auth.js')(app,passport);
+
+//load passport strategies
+require('./app/config/passport/passport.js')(passport, models.user);
+ 
+//Sync Database
+models.sequelize.sync().then(function() {
+ 
+    console.log('Welcome to Passport!')
+ 
+}).catch(function(err) {
+ 
+    console.log(err, "Something went wrong with the Database Update!")
+ 
+});
+
+ 
+app.get('/', function(req, res) {
+ 
+    res.send('Welcome to Passport with Sequelize');
+ 
+});
 
 
-// routes ======================================================================
-require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
-// launch ======================================================================
-app.listen(port);
-console.log('The magic happens on port ' + port);
-
+app.listen(5000, function(err) {
+ 
+    if (!err)
+        console.log("Site is live, running on port 5000!");
+    else console.log(err)
+ 
+});
