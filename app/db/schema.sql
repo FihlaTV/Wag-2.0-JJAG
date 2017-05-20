@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `wagr-db`.`users` (
   `username` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `owners_idowners` INT NOT NULL,
-  `is-admin` TINYINT(1) NULL,
+  `is-admin` TINYINT(1) NULL DEFAULT 0,
   PRIMARY KEY (`idusers`),
   INDEX `fk_users_owners_idx` (`owners_idowners` ASC),
   CONSTRAINT `fk_users_owners`
@@ -89,3 +89,27 @@ CREATE TABLE IF NOT EXISTS `wagr-db`.`events` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
