@@ -1,0 +1,160 @@
+h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 6vw;
+    text-align: center;
+}
+
+h2 {
+
+    font-size: 50px;
+}
+
+h5{
+
+    text-align: center;
+    color: green;
+}
+
+h6 {
+
+    margin-top: 0px;
+    text-align: center;
+}
+
+.panel-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+.panel-body {
+
+    text-align: center;
+    font-weight: bolder;
+}
+
+#joinButton {
+    display:block;
+    margin:auto;
+    width: 100px;
+    margin-top: 10px;
+}
+
+#themeButton {
+
+    display:block;
+    margin:auto;
+    width: 100px;
+    margin-top: 10px;
+
+}
+
+.scoreHolder {
+
+    font-weight: bolder;
+}
+
+.hiddenOne {
+
+    display: none;
+}
+
+
+#loadingPic {
+
+    display:block;
+    margin:auto;
+    width: 200px;
+    height: auto;
+    margin-top: 0px;
+}
+
+.ee {
+
+    display:block;
+    margin:auto;
+    width: 100px;
+    margin-top: 10px;
+
+}
+
+.floatLeft {
+
+    float: left;
+}
+
+.floatRight {
+
+    float: right;
+}
+
+.winnerClass {
+
+    color: green;
+
+}
+
+.loserClass {
+
+    color: red;
+}
+
+.glow {
+
+    -webkit-box-shadow:0 0 20px blue;
+    -moz-box-shadow: 0 0 20px blue;
+    box-shadow:0 0 20px blue;
+}
+
+.shakeMe {
+    animation: shake 2.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(10px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-15px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(15px, 0, 0);
+    }
+}
+
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+.animate-flicker {
+    -webkit-animation: flickerAnimation 1s infinite;
+    -moz-animation: flickerAnimation 1s infinite;
+    -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 1s infinite;
+}
