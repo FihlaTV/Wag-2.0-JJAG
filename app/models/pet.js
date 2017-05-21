@@ -4,11 +4,6 @@
 module.exports = function(sequelize, Datatypes) {
 // Sequelize model to create `pets` instance in db
     var Pet = sequelize.define('pet', {
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Datatypes.INTEGER
-        },
         pet_name: {
             type: Datatypes.STRING,
             allowNull: false,
@@ -23,10 +18,10 @@ module.exports = function(sequelize, Datatypes) {
                 len: [1]
             }
         },
-        notes: {
+        img_link: {
             type: Datatypes.STRING
         },
-        img_link: {
+        notes: {
             type: Datatypes.STRING
         }
     });

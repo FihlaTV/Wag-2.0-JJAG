@@ -4,11 +4,6 @@
 module.exports = function(sequelize, Datatypes) {
  // Sequelize model to create `events` instance in db
     var Event = sequelize.define('event', {
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Datatypes.INTEGER
-        },
         event_type: {
             type: Datatypes.STRING,
             allowNull: false,
@@ -17,6 +12,9 @@ module.exports = function(sequelize, Datatypes) {
             }
         },
         notes: {
+            type: Datatypes.STRING
+        },
+        img_link: {
             type: Datatypes.STRING
         }
     });
