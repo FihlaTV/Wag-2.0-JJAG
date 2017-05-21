@@ -5,82 +5,93 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema wagr-db
+
+-- Schema wagr_db
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema wagr-db
+-- Schema wagr_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `wagr-db` DEFAULT CHARACTER SET utf8 ;
-USE `wagr-db` ;
+CREATE SCHEMA IF NOT EXISTS `wagr_db` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema wagr_db
+-- -----------------------------------------------------
+USE `wagr_db` ;
 
 -- -----------------------------------------------------
--- Table `wagr-db`.`owners`
+-- Table `wagr_db`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wagr-db`.`owners` (
-  `idowners` INT NOT NULL,
-  `first-name` VARCHAR(45) NULL,
-  `last-name` VARCHAR(45) NULL,
-  `addr1` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
-  `ownerscol` VARCHAR(45) NULL,
-  PRIMARY KEY (`idowners`))
-  ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `wagr-db`.`users`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wagr-db`.`users` (
-  `idusers` INT NOT NULL,
-  `username` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  `owners_idowners` INT NOT NULL,
-  `is-admin` TINYINT(1) NULL DEFAULT 0,
+CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
+  `idusers` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `isAdmin` TINYINT(1) NULL DEFAULT 0,
   PRIMARY KEY (`idusers`),
-  INDEX `fk_users_owners_idx` (`owners_idowners` ASC),
-  CONSTRAINT `fk_users_owners`
-  FOREIGN KEY (`owners_idowners`)
-  REFERENCES `wagr-db`.`owners` (`idowners`)
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC))
+  ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+
+-- Table `wagr_db`.`owners`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
+  `idowners` INT NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `users_idusers` INT NOT NULL,
+  PRIMARY KEY (`idowners`, `users_idusers`),
+  INDEX `fk_owners_users1_idx` (`users_idusers` ASC),
+  CONSTRAINT `fk_owners_users1`
+  FOREIGN KEY (`users_idusers`)
+  REFERENCES `wagr_db`.`users` (`idusers`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `wagr-db`.`pets`
+
+-- Table `wagr_db`.`pets`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wagr-db`.`pets` (
+CREATE TABLE IF NOT EXISTS `wagr_db`.`pets` (
   `idpets` INT NOT NULL,
-  `pet-name` VARCHAR(45) NULL,
-  `pet-type` VARCHAR(45) NULL,
-  `owners_idowners` INT NOT NULL,
+  `pet_name` VARCHAR(45) NOT NULL,
+  `pet_type` VARCHAR(45) NOT NULL,
+  `img_link` VARCHAR(45) NULL,
   `notes` VARCHAR(45) NULL,
-  `img-link` VARCHAR(45) NULL,
-  PRIMARY KEY (`idpets`),
-  INDEX `fk_pets_owners1_idx` (`owners_idowners` ASC),
-  CONSTRAINT `fk_pets_owners1`
+  `owners_idowners` INT NOT NULL,
+  PRIMARY KEY (`idpets`, `owners_idowners`),
+  INDEX `fk_pets_owners_idx` (`owners_idowners` ASC),
+  CONSTRAINT `fk_pets_owners`
   FOREIGN KEY (`owners_idowners`)
-  REFERENCES `wagr-db`.`owners` (`idowners`)
+  REFERENCES `wagr_db`.`owners` (`idowners`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `wagr-db`.`events`
+
+-- Table `wagr_db`.`events`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `wagr-db`.`events` (
+CREATE TABLE IF NOT EXISTS `wagr_db`.`events` (
   `idevents` INT NOT NULL,
-  `event-type` VARCHAR(45) NULL,
-  `timestamp` VARCHAR(45) NULL,
-  `pets_idpets` INT NOT NULL,
+  `event_type` VARCHAR(45) NOT NULL,
   `notes` VARCHAR(45) NULL,
-  PRIMARY KEY (`idevents`),
-  INDEX `fk_events_pets1_idx` (`pets_idpets` ASC),
+  `img_link` VARCHAR(45) NULL,
+  `pets_idpets` INT NOT NULL,
+  `pets_owners_idowners` INT NOT NULL,
+  PRIMARY KEY (`idevents`, `pets_idpets`, `pets_owners_idowners`),
+  INDEX `fk_events_pets1_idx` (`pets_idpets` ASC, `pets_owners_idowners` ASC),
   CONSTRAINT `fk_events_pets1`
-  FOREIGN KEY (`pets_idpets`)
-  REFERENCES `wagr-db`.`pets` (`idpets`)
+  FOREIGN KEY (`pets_idpets` , `pets_owners_idowners`)
+  REFERENCES `wagr_db`.`pets` (`idpets` , `owners_idowners`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
@@ -89,27 +100,4 @@ CREATE TABLE IF NOT EXISTS `wagr-db`.`events` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
