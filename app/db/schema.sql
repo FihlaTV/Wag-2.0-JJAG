@@ -5,6 +5,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+
 -- Schema wagr_db
 -- -----------------------------------------------------
 
@@ -31,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
 
 
 -- -----------------------------------------------------
+
 -- Table `wagr_db`.`owners`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
@@ -45,12 +47,14 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
   CONSTRAINT `fk_owners_users1`
   FOREIGN KEY (`users_idusers`)
   REFERENCES `wagr_db`.`users` (`idusers`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+
 -- Table `wagr_db`.`pets`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`pets` (
@@ -65,12 +69,14 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`pets` (
   CONSTRAINT `fk_pets_owners`
   FOREIGN KEY (`owners_idowners`)
   REFERENCES `wagr_db`.`owners` (`idowners`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+
 -- Table `wagr_db`.`events`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`events` (
@@ -85,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`events` (
   CONSTRAINT `fk_events_pets1`
   FOREIGN KEY (`pets_idpets` , `pets_owners_idowners`)
   REFERENCES `wagr_db`.`pets` (`idpets` , `owners_idowners`)
+
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
   ENGINE = InnoDB;
@@ -93,3 +100,4 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`events` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
