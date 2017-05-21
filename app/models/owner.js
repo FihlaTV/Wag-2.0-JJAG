@@ -35,12 +35,6 @@ module.exports = function(sequelize, Datatypes) {
             validate: {
                 isEmail: true
             }
-        },
-        phone: {
-            type: Datatypes.INTEGER,
-            validate: {
-                isNumeric: true
-            }
         }
     });
     return Owner;
