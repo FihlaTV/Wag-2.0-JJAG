@@ -7,22 +7,8 @@ module.exports = function(sequelize, Sequelize) {
             primaryKey: true,
             type: Sequelize.INTEGER
         },
- 
-        firstname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
- 
-        lastname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
- 
+
         username: {
-            type: Sequelize.TEXT
-        },
- 
-        about: {
             type: Sequelize.TEXT
         },
  
@@ -52,4 +38,4 @@ module.exports = function(sequelize, Sequelize) {
  
     return User;
  
-}
+};
