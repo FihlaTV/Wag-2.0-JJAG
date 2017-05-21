@@ -6,7 +6,7 @@
  
         "password": "root",
  
-        "database": "wagr-db",
+        "database": "wagr_db",
  
         "host": "127.0.0.1",
  
@@ -20,7 +20,7 @@
  
         "password": "root",
  
-        "database": "wagr-db",
+        "database": "wagr_db",
  
         "host": "",
  
@@ -34,7 +34,7 @@
  
         "password": "root",
  
-        "database": "wagr-db",
+        "database": "wagr_db",
  
         "host": "127.0.0.1",
  
