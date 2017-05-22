@@ -24,6 +24,23 @@ module.exports = function(sequelize, Datatypes) {
         notes: {
             type: Datatypes.STRING
         }
-    });
+    },
+        {
+            classMethods: {
+                associate: function(models) {
+                    Pet.belongsTo(models.Owner, {
+                        foreignKey: {
+                            allowNull: false
+                        }
+                    });
+                },
+                associate: function(models) {
+                    Pet.hasMany(models.Event, {
+                        onDelete: "cascade"
+                    });
+                }
+            }
+        }
+    );
     return Pet;
 };

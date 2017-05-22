@@ -40,6 +40,23 @@ module.exports = function(sequelize, Datatypes) {
                 is: ["([0-1]([\s-./\\])?)?(\(?[2-9]\d{2}\)?|[2-9]\d{3})([\s-./\\])?(\d{3}([\s-./\\])?\d{4}|[a-zA-Z0-9]{7})$"]
             }
         }
-    });
+    },
+        {
+            classMethods: {
+                associate: function(models) {
+                    Owner.belongsTo(models.User, {
+                        foreignKey: {
+                            allowNull: false
+                        }
+                    });
+                },
+                associate: function(models) {
+                    Owner.hasMany(models.Pet, {
+                        onDelete: "cascade"
+                    });
+                }
+            }
+        }
+    );
     return Owner;
 };

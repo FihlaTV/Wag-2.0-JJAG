@@ -17,6 +17,18 @@ module.exports = function(sequelize, Datatypes) {
         img_link: {
             type: Datatypes.STRING
         }
-    });
+    },
+        {
+            classMethods: {
+                associate: function(models) {
+                    Event.belongsTo(models.Pet, {
+                        foreignKey: {
+                            allowNull: false
+                        }
+                    });
+                }
+            }
+        }
+    );
     return Event;
 };
