@@ -69,6 +69,6 @@ app.get('/', function(req, res) {
 // Start server listening
 app.listen(PORT, function(err) {
     if (!err)
-        console.log(`Site is live, running on port ${PORT}!`);
+        console.log("Site is live, running on port ${PORT}!");
     else console.log(err)
 });
