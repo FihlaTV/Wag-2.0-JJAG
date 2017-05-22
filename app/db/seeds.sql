@@ -1,4 +1,4 @@
-INSERT INTO `owners` (`first-name`,`last-name`,`email`,addr1)
+INSERT INTO `owners` (`first_name`,`last_name`,`email`,address)
 VALUES ('Ron', 'Gamache', 'themer@verizon.net','9104 Theatre St. Orlando, FL 32801'),
   ('Darlene', 'Bridgett', 'avalon@aol.com','449 Rocky River St. Clermont, FL 34711'),
   ('Wendie', 'Cothern', 'avalon@aol.com','479 Saxton Street Belle Isle, FL 32809'),

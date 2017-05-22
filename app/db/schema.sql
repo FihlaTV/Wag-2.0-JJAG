@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
+  `phone` INT NOT NULL,
   `users_idusers` INT NOT NULL,
   PRIMARY KEY (`idowners`, `users_idusers`),
   INDEX `fk_owners_users1_idx` (`users_idusers` ASC),
