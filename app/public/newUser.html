@@ -1,99 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- ==============================================
+    Title and Meta Tags
+    =============================================== -->
+    <meta charset="UTF-8">
+    <title>Owner Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Online Registration Forum</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap -->
+    <!-- ==============================================
+    CSS
+    =============================================== -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link href="assets/css/mdb.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/flexslider.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--Local Stylesheet-->
-    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- ==============================================
+    Fonts
+    =============================================== -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700' rel='stylesheet'
+          type='text/css'>
+
+
+    <!-- ==============================================
+    JS
+    =============================================== -->
+
+    <!--[if lt IE 9]>
+    <script src="assets/libs/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="assets/libs/modernizr.min.js"></script>
 
 </head>
 
-<div class="jumbotron text-center">
-    <h1><span class="glyphicon glyphicon-list-alt"></span>Wag Pet Resort</h1>
+<!-- ==============================================
+New Member Forum
+=============================================== -->
+<section id="contact" class="big-padding light-typo color-overlay">
+
+    <div class="container">
+
+        <h1 class="section-title">New Member Forum<span class="contact-info"></span></h1>
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-5 scrollimation fade-right">
+
+                <p class="lead">Please fill out the required fields and press submit to create your user profile.</p>
+
+                <!--
+                                    <div class="social-links">
+                                        <a href="#"><i class="fa fa-fw fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-fw fa-facebook-square"></i></a>
+                                        <a href="#"><i class="fa fa-fw fa-instagram"></i></a>
+                                    </div>-->
+
+
+            </div>
+
+            <!--=== Contact Form ===-->
+
+            <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left" action="contact.php"
+                  method="post" novalidate>
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="first-name" name="contactName" class="form-control requiredField" type="text"
+                               data-error-empty="is required">
+                        <label class="control-label" for="first-name">First Name</label>
+                    </div>
+                </div><!-- End first name input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="last-name" name="contactName" class="form-control requiredField" type="text"
+                               data-error-empty="is required">
+                        <label class="control-label" for="last-name">Last Name</label>
+                    </div>
+                </div><!-- End last name input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="address" name="address" class="form-control requiredField" type="text"
+                               data-error-empty="is required">
+                        <label class="control-label" for="address">Address</label>
+                    </div>
+                </div><!-- End address input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="city" name="city" class="form-control requiredField" type="text"
+                               data-error-empty="is required">
+                        <label class="control-label" for="city">City</label>
+                    </div>
+                </div><!-- End city input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="state" name="state" class="form-control requiredField" type="text"
+                               data-error-empty="is required">
+                        <label class="control-label" for="state">State</label>
+                    </div>
+                </div><!-- End state input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="zip" name="zip" class="form-control requiredField" type="number"
+                               data-error-empty="is required">
+                        <label class="control-label" for="zip">Zip Code</label>
+                    </div>
+                </div><!-- End zip code input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="contact-mail" name="phone" class="form-control requiredField" type="number"
+                               data-error-empty="is required" data-error-invalid="is invalid">
+                        <label class="control-label" for="contact">Phone</label>
+                    </div>
+                </div><!-- End phone input -->
+
+                <div class="form-group">
+                    <div class="controls">
+                        <input id="contact-mail" name="email" class="form-control requiredField" type="email"
+                               data-error-empty="is required" data-error-invalid="is invalid">
+                        <label class="control-label" for="contact-mail">Email</label>
+                    </div>
+                </div><!-- End email input -->
+
+
+                <button name="submit" type="submit" class="btn" data-error-message="Please fill the required fields"
+                        data-sending-message="Sending Message" data-ok-message="Your Message has been sent!">Submit
+                </button>
+                <input type="hidden" name="submitted" id="submitted" value="true"/>
+                <br><br><br>
+            </form><!-- End contact-form -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==============================================
+FOOTER
+=============================================== -->
+
+<footer id="main-footer">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-2">
+
+                <a class="logo" href="#">
+                    <img class="img-responsive" src="" alt="logo"/>
+                </a>
+
+            </div>
+
+            <div class="col-sm-8">
+
+                <nav>
+
+                    <ul class="footer-nav">
+                        <li><a class="scrollto" href="#">Home</a></li>
+                        <li><a class="scrollto" href="#">Services</a></li>
+                        <li><a class="scrollto" href="#">Contact</a></li>
+                    </ul>
+
+                </nav>
+
+            </div>
+
+            <div class="col-sm-2 text-right social-links">
+
+                <a href="#" data-toggle="tooltip" title="Follow us on Twitter"><i class="fa fa-fw fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" title="Follow us on Face"><i class="fa fa-fw fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" title="Follow us on LinkedIn"><i
+                        class="fa fa-fw fa-instagram"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
 </div>
 
 
-<!--CONTENT-->
-<div class="container content-area">
-    <div class="row" id="res-form-container">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <div class="card" id="res-card">
-                <div class="card-block" id="res-form">
-                    <div class="form-header special-color">
-                        <h2>Online Reservation Form</h2>
-                    </div>
-                    <form id="owner-info">
-
-                        <!--CLIENT INFO-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <fieldset>
-                                    <div class="text-center">
-                                        <h3 class="blue-grey-text">New Customer</h3>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-first" class="form-control" required="">
-                                        <label for="client-first">First name</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-last" class="form-control" required="">
-                                        <label for="client-last">Last name</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="email" id="client-email" class="form-control" required="">
-                                        <label for="client-email">Email</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-phone" class="form-control" required=""
-                                               data-parsley-minlength="10" data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$"
-                                               data-parsley-minlength-message="Value should be at least
-                                               10 digits (include area code)" data-parsley-pattern-message="Only digits
-                                               and special characters allowed">
-                                        <label for="client-phone">Phone</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-addr1" class="form-control"
-                                               placeholder="Enter a Location" onclick="geolocate()">
-                                        <label for="client-addr1" id="addr1-label" class="">Address Line 1</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-addr2" class="form-control">
-                                        <label for="client-addr2" id="addr2-label" class="">Address Line 2</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-city" class="form-control">
-                                        <label for="client-city" id="city-label" class="">City</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-state" class="form-control">
-                                        <label for="client-state" id="state-label">State</label>
-                                    </div>
-                                    <div class="md-form">
-                                        <input type="text" id="client-zip" class="form-control">
-                                        <label for="client-zip" id="zip-label">Zip Code</label>
-                                    </div>
-                                </fieldset>
-                            </div>
+<!-- ==============================================
+SCRIPTS
+=============================================== -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="assets/libs/bootstrap.min.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/twitterFetcher_min.js"></script>
+<script src="assets/js/jquery.flexslider.min.js"></script>
+<script src="assets/js/contact.js"></script>
+<script src="assets/js/scripts.js"></script>
 
 
-                            <!--jQuery-->
-                            <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-                                    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-                                    crossorigin="anonymous"></script>
-                            <!--Local JS-->
