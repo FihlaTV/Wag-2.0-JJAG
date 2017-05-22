@@ -1,3 +1,4 @@
+
 INSERT INTO `owners` (`first-name`,`last-name`,`addr1`)
 VALUES ('Ron', 'Gamache','9104 Theatre St. Orlando, FL 32801'),
   ('Darlene', 'Bridgett','449 Rocky River St. Clermont, FL 34711'),
@@ -28,8 +29,7 @@ VALUES ('Ron', 'Gamache','9104 Theatre St. Orlando, FL 32801'),
   ('Albina', 'Cowan','2661 Silent Meadow, Orlando, FL 32806'),
   ('Ariel', 'Costa','80 Fairground Ave., Orlando, FL 32832'),
   ('Glen', 'Turner','8902 Grove St., Winter Garden, FL 34778'),
-  ('Joel','Roberts','7516 Wintergreen Drive, Orlando, iFL 32832');
-
+  ('Joel','Roberts','7516 Wintergreen Drive, Orlando, FL 32832');
 
 INSERT INTO `users` (`email`,`password`,`isAdmin`)
 VALUES ('themer@verizon.net','12345678',0),
