@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Online Registration Forum</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="assets/css/mdb.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!--Local Stylesheet-->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<div class="jumbotron text-center">
+    <h1><span class="glyphicon glyphicon-list-alt"></span>Wag Pet Resort</h1>
+</div>
+
+
+<!--CONTENT-->
+<div class="container content-area">
+    <div class="row" id="res-form-container">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="card" id="res-card">
+                <div class="card-block" id="res-form">
+                    <div class="form-header special-color">
+                        <h2>Online Reservation Form</h2>
+                    </div>
+                    <form id="owner-info">
+
+                        <!--CLIENT INFO-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset>
+                                    <div class="text-center">
+                                        <h3 class="blue-grey-text">New Customer</h3>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-first" class="form-control" required="">
+                                        <label for="client-first">First name</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-last" class="form-control" required="">
+                                        <label for="client-last">Last name</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="email" id="client-email" class="form-control" required="">
+                                        <label for="client-email">Email</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-phone" class="form-control" required=""
+                                               data-parsley-minlength="10" data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$"
+                                               data-parsley-minlength-message="Value should be at least
+                                               10 digits (include area code)" data-parsley-pattern-message="Only digits
+                                               and special characters allowed">
+                                        <label for="client-phone">Phone</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-addr1" class="form-control"
+                                               placeholder="Enter a Location" onclick="geolocate()">
+                                        <label for="client-addr1" id="addr1-label" class="">Address Line 1</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-addr2" class="form-control">
+                                        <label for="client-addr2" id="addr2-label" class="">Address Line 2</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-city" class="form-control">
+                                        <label for="client-city" id="city-label" class="">City</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-state" class="form-control">
+                                        <label for="client-state" id="state-label">State</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <input type="text" id="client-zip" class="form-control">
+                                        <label for="client-zip" id="zip-label">Zip Code</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+                            <!--jQuery-->
+                            <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+                                    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                                    crossorigin="anonymous"></script>
+                            <!--Local JS-->
