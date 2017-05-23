@@ -9,15 +9,29 @@ exports.signin = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
-    res.render('dashboard');
-};
+
+	if(req.user.isAdmin) {
+
+		console.log("Admin Login")
+
+	res.render('administrator', req.user);
+
+		}
+
+	else {
+
+		console.log("User Login")	
+		res.render('dashboard', req.user);
+	}	
+   
+}
 
 exports.logout = function(req, res) {
     req.session.destroy(function(err) {
-        res.redirect('/');
+        res.redirect('/signin');
     });
 };
 
-exports.administrator = function(req, res) {
-    res.render('administrator');
-};
+// exports.administrator = function(req, res) {
+//     res.render('administrator');
+// };

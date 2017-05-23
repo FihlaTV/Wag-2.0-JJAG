@@ -17,9 +17,10 @@ module.exports = function(app, passport) {
     app.get('/logout',authController.logout);
  	function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
+             console.log(req.user.isAdmin);
             return next();
         res.redirect('/signin');
 	}
 
-	app.get('/administrator', authController.administrator);
+	//app.get('/administrator', authController.administrator);
 };

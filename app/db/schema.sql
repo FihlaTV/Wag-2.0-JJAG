@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
 -- Table `wagr_db`.`owners`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
-  `idowners` INT NOT NULL,
+  `idowners` INT NOT NULL AUTO_INCREMENT,
 <<<<<<< HEAD
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
