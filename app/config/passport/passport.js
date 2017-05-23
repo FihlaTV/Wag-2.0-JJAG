@@ -32,7 +32,13 @@ module.exports = function(passport, user) {
                     var data =
                         {
                             email: email,
+<<<<<<< HEAD
+ 
                             password: userPassword
+ 
+=======
+                            password: userPassword
+>>>>>>> master
                         };
                     User.create(data).then(function(newUser, created) {
                         if (!newUser) {
