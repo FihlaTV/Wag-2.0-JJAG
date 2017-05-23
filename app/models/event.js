@@ -1,6 +1,7 @@
 /**
  * Created by Ariel on 5/20/2017.
  */
+
 module.exports = function(sequelize, Datatypes) {
  // Sequelize model to create `events` instance in db
     var Event = sequelize.define('event', {
@@ -21,7 +22,7 @@ module.exports = function(sequelize, Datatypes) {
         {
             classMethods: {
                 associate: function(models) {
-                    Event.belongsTo(models.Pet, {
+                    Event.belongsTo(models.pet, {
                         foreignKey: {
                             allowNull: false
                         }
@@ -30,5 +31,7 @@ module.exports = function(sequelize, Datatypes) {
             }
         }
     );
+
+
     return Event;
 };

@@ -22,11 +22,11 @@ USE `wagr_db` ;
 -- Table `wagr_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
-  `idusers` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `isAdmin` TINYINT(1) NULL DEFAULT 0,
-  PRIMARY KEY (`idusers`),
+  PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
   ENGINE = InnoDB;
 

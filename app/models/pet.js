@@ -1,6 +1,7 @@
 /**
  * Created by Ariel on 5/20/2017.
  */
+
 module.exports = function(sequelize, Datatypes) {
 // Sequelize model to create `pets` instance in db
     var Pet = sequelize.define('pet', {
@@ -28,19 +29,19 @@ module.exports = function(sequelize, Datatypes) {
         {
             classMethods: {
                 associate: function(models) {
-                    Pet.belongsTo(models.Owner, {
+                    Pet.belongsTo(models.owner, {
                         foreignKey: {
                             allowNull: false
                         }
-                    });
-                },
-                associate: function(models) {
-                    Pet.hasMany(models.Event, {
+                    }),
+                    Pet.hasMany(models.event, {
                         onDelete: "cascade"
                     });
                 }
             }
         }
     );
+
+
     return Pet;
 };

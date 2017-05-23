@@ -1,7 +1,10 @@
 /**
  * Created by Ariel on 5/20/2017.
  */
+
+
 module.exports = function(sequelize, Datatypes) {
+
 // Sequelize model to create `owners` instance in db
     var Owner = sequelize.define('owner', {
         first_name: {
@@ -43,20 +46,21 @@ module.exports = function(sequelize, Datatypes) {
     },
         {
             classMethods: {
-                associate: function(models) {
-                    Owner.belongsTo(models.User, {
+                associate: function (models) {
+                    Owner.belongsTo(models.user, {
                         foreignKey: {
                             allowNull: false
                         }
-                    });
-                },
-                associate: function(models) {
-                    Owner.hasMany(models.Pet, {
-                        onDelete: "cascade"
-                    });
+                    }),
+                        Owner.hasMany(models.pet, {
+                            onDelete: "cascade"
+                        });
+
                 }
             }
         }
     );
+
+
     return Owner;
 };
