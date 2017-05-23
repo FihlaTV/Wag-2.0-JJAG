@@ -23,5 +23,5 @@ module.exports = function(app, passport) {
         res.redirect('/signin');
 	}
 
-	//app.get('/administrator', authController.administrator);
+	app.get('/administrator', authController.administrator);
 };

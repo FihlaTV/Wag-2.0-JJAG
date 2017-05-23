@@ -37,6 +37,6 @@ exports.logout = function(req, res) {
     });
 };
 
-// exports.administrator = function(req, res) {
-//     res.render('administrator');
-// };
+exports.administrator = function(req, res) {
+    res.render('administrator');
+};
