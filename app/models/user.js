@@ -8,6 +8,10 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.STRING,
             allowNull: false
         },
+        isAdmin: {
+            type: Datatypes.BOOLEAN,
+            default: 0
+        },
         status: {
             type: Datatypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
