@@ -42,6 +42,8 @@ module.exports = function(sequelize, Datatypes) {
                 // ensures data is phone number in phone number format
                 is: ["([0-1]([\s-./\\])?)?(\(?[2-9]\d{2}\)?|[2-9]\d{3})([\s-./\\])?(\d{3}([\s-./\\])?\d{4}|[a-zA-Z0-9]{7})$"]
             }
+<<<<<<< HEAD
+=======
         }
     },
         {
@@ -58,6 +60,7 @@ module.exports = function(sequelize, Datatypes) {
 
                 }
             }
+>>>>>>> master
         }
     );
 
