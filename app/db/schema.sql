@@ -22,11 +22,12 @@ USE `wagr_db` ;
 -- Table `wagr_db`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
+
+  `idusers` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `isAdmin` TINYINT(1) NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`idusers`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
   ENGINE = InnoDB;
 
@@ -37,10 +38,9 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`users` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
   `idowners` INT NOT NULL,
-  `first_name` VARCHAR(45) NOT NULL,
-  `last_name` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `address` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(255) NOT NULL,
+  `last_name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
   `phone` INT NOT NULL,
   `users_idusers` INT NOT NULL,
   PRIMARY KEY (`idowners`, `users_idusers`),
@@ -60,10 +60,10 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`owners` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`pets` (
   `idpets` INT NOT NULL,
-  `pet_name` VARCHAR(45) NOT NULL,
-  `pet_type` VARCHAR(45) NOT NULL,
-  `img_link` VARCHAR(45) NULL,
-  `notes` VARCHAR(45) NULL,
+  `pet_name` VARCHAR(255) NOT NULL,
+  `pet_type` VARCHAR(255) NOT NULL,
+  `img_link` VARCHAR(500) NULL,
+  `notes` VARCHAR(1000) NULL,
   `owners_idowners` INT NOT NULL,
   PRIMARY KEY (`idpets`, `owners_idowners`),
   INDEX `fk_pets_owners_idx` (`owners_idowners` ASC),
@@ -82,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `wagr_db`.`pets` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wagr_db`.`events` (
   `idevents` INT NOT NULL,
-  `event_type` VARCHAR(45) NOT NULL,
-  `notes` VARCHAR(45) NULL,
-  `img_link` VARCHAR(45) NULL,
+  `event_type` VARCHAR(255) NOT NULL,
+  `notes` VARCHAR(1000) NULL,
+  `img_link` VARCHAR(500) NULL,
   `pets_idpets` INT NOT NULL,
   `pets_owners_idowners` INT NOT NULL,
   PRIMARY KEY (`idevents`, `pets_idpets`, `pets_owners_idowners`),
