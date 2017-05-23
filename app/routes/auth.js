@@ -20,4 +20,6 @@ module.exports = function(app, passport) {
             return next();
         res.redirect('/signin');
 	}
+
+	app.get('/administrator', authController.administrator);
 };

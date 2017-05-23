@@ -17,3 +17,7 @@ exports.logout = function(req, res) {
         res.redirect('/');
     });
 };
+
+exports.administrator = function(req, res) {
+    res.render('administrator');
+};
