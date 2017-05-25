@@ -38,8 +38,12 @@ module.exports = function(app) {
         }).then(function(results) {
         //THEN res.redirect to /dashboard
             console.log(results);
-            res.redirect('/dashboard');
+            res.redirect('/addpet');
         });
+    });
+
+    app.get('/addpet', function(req, res) {
+        res.render('addpet');
     });
 
     app.get('/dashboard', function(req, res) {
