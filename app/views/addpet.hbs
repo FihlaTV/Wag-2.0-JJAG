@@ -3,7 +3,15 @@
     <h3>Yay</h3>
 </div>
 
-<form action="/addpet" method="POST">
-    <input type="hidden" name="devoured" value="true">
-    <button type="submit">Add a Pet</button>
+<form id="addpet" name="addpet" method="post" action="addpet">
+    <label for="pet_name">Pet Name</label>
+    <input class="text" name="pet_name" type="text"/> <br>
+    <label for="pet_type">Pet Type</label>
+    <input name="pet_type" type="text"/> <br>
+    <label for="img_link">Link to an Image of your Pet</label>
+    <input name="img_link" type="text"/> <br>
+    <label for="notes">Any special notes about your Pet?</label>
+    <input name="notes" type="text"/> <br>
+
+    <input class="btn" type="submit" value="Add"/>
 </form>
