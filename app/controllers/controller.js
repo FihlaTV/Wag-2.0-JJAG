@@ -2,6 +2,11 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+    var thisUserId,
+        thisOwnerId,
+        thisPetId,
+        thisEventId;
+
     // Create routes
     app.get('/', function(req, res) {
         res.redirect('/signin');
@@ -20,6 +25,11 @@ module.exports = function(app) {
         res.render('signup');
     });
 
+    app.post('/signup', function(req, res) {
+        thisUserId = req.body.users_id;
+        res.redirect('ownerquestions');
+    });
+
     app.get('/ownerquestions', function(req, res) {
         res.render('ownerquestions');
     });
@@ -33,12 +43,35 @@ module.exports = function(app) {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            address: req.body.email,
+            address: req.body.address,
             phone: req.body.phone
         }).then(function(results) {
+            thisOwnerId = results.owners_id;
         //THEN res.redirect to /dashboard
             console.log(results);
-            res.redirect('/dashboard');
+            res.redirect('/addpet');
+        });
+    });
+
+    app.get('/addpet', function(req, res) {
+        res.render('addpet');
+    });
+
+    app.post('/addpet', function(req, res) {
+
+        console.log('req.body', req.body);
+        // gather data from form fields and hit Pet model
+        db.pet.create({
+            owners_id: thisOwnerId,
+            pet_name: req.body.pet_name,
+            pet_type: req.body.pet_type,
+            img_link: req.body.img_link,
+            notes: req.body.notes
+        }).then(function(results) {
+            //THEN res.redirect to /dashboard
+            console.log(results);
+            var addPetHbsObject = {addPetHbsObject: results};
+            res.render('dashboard', addPetHbsObject);
         });
     });
 
