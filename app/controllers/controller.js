@@ -11,6 +11,11 @@ module.exports = function(app) {
         res.render('signin');
     });
 
+    app.post('/signin', function(req, res) {
+        // will add logic to check if sign-in info is correct
+        res.redirect('dashboard');
+    });
+
     app.get('/signup', function(req, res) {
         res.render('signup');
     });
@@ -24,7 +29,14 @@ module.exports = function(app) {
     });
 
     app.get('/administrator', function(req, res) {
-        res.render('administrator');
+        db.pet.findAll({}).then(function(data) {
+            console.log('pet.findAll data', data);
+            var petsHbsObject = {foobar:data};
+            console.log('petsHbsObject', petsHbsObject);
+
+        res.render('administrator', petsHbsObject);
+        });
+
     });
 
 
