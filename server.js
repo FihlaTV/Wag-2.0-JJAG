@@ -34,7 +34,7 @@ app.set("view engine", "hbs");
 require("./app/controllers/controller.js")(app);
 
 // sync sequelize models and start express server
-db.sequelize.sync({ }).then(function() {
+db.sequelize.sync({}).then(function() {
     // starting server w/ listener
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
