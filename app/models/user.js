@@ -16,10 +16,6 @@ module.exports = function(sequelize, Datatypes) {
         isAdmin: {
             type: Datatypes.BOOLEAN,
             defaultValue: 0
-        },
-        status: {
-            type: Datatypes.ENUM('active', 'inactive'),
-            defaultValue: 'active'
         }
     });
  
