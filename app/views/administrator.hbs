@@ -1,4 +1,13 @@
 <div class="container">
     <h1>Administrator Dashboard</h1>
-    <h3>Hurray! you are logged in as {{this.email}}</h3>
+
+    <ul>
+        {{#each foobar}}
+                <li>
+                    {{this.pet_name}}
+                </li>
+        {{/each}}
+    </ul>
+
+
 </div>
