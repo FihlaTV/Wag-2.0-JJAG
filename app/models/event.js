@@ -5,6 +5,11 @@
 module.exports = function(sequelize, Datatypes) {
  // Sequelize model to create `events` instance in db
     var Event = sequelize.define('event', {
+        events_id: {
+            type: Datatypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         event_type: {
             type: Datatypes.STRING,
             allowNull: false,
@@ -18,19 +23,7 @@ module.exports = function(sequelize, Datatypes) {
         img_link: {
             type: Datatypes.STRING
         }
-    },
-        {
-            classMethods: {
-                associate: function(models) {
-                    Event.belongsTo(models.pet, {
-                        foreignKey: {
-                            allowNull: false
-                        }
-                    });
-                }
-            }
-        }
-    );
+    });
 
 
     return Event;

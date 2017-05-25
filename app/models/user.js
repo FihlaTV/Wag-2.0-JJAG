@@ -1,6 +1,11 @@
 module.exports = function(sequelize, Datatypes) {
  
     var User = sequelize.define('user', {
+        users_id: {
+            type: Datatypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         email: {
             type: Datatypes.TEXT
         },
@@ -11,10 +16,6 @@ module.exports = function(sequelize, Datatypes) {
         isAdmin: {
             type: Datatypes.BOOLEAN,
             defaultValue: 0
-        },
-        status: {
-            type: Datatypes.ENUM('active', 'inactive'),
-            defaultValue: 'active'
         }
     });
  

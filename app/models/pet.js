@@ -5,6 +5,11 @@
 module.exports = function(sequelize, Datatypes) {
 // Sequelize model to create `pets` instance in db
     var Pet = sequelize.define('pet', {
+        pets_id: {
+            type: Datatypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         pet_name: {
             type: Datatypes.STRING,
             allowNull: false,
@@ -25,22 +30,7 @@ module.exports = function(sequelize, Datatypes) {
         notes: {
             type: Datatypes.STRING
         }
-    },
-        {
-            classMethods: {
-                associate: function(models) {
-                    Pet.belongsTo(models.owner, {
-                        foreignKey: {
-                            allowNull: false
-                        }
-                    }),
-                    Pet.hasMany(models.event, {
-                        onDelete: "cascade"
-                    });
-                }
-            }
-        }
-    );
+    });
 
 
     return Pet;

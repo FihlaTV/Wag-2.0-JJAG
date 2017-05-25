@@ -29,7 +29,7 @@ module.exports = function(app) {
         console.log('req.body', req.body);
         // gather data from form fields and hit Owner model
         db.owner.create({
-            userId: 1,
+            users_id: 1,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
