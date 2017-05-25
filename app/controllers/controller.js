@@ -24,6 +24,24 @@ module.exports = function(app) {
         res.render('ownerquestions');
     });
 
+    app.post('/ownerquestions', function(req, res) {
+
+        console.log('req.body', req.body);
+        // gather data from form fields and hit Owner model
+        db.owner.create({
+            userId: 1,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            address: req.body.email,
+            phone: req.body.phone
+        }).then(function(results) {
+        //THEN res.redirect to /dashboard
+            console.log(results);
+            res.redirect('/dashboard');
+        });
+    });
+
     app.get('/dashboard', function(req, res) {
         res.render('dashboard');
     });
