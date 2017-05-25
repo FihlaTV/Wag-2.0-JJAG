@@ -32,7 +32,7 @@ CREATE TABLE `pets`
   `pet_name` VARCHAR(255) NOT NULL,
   `pet_type` VARCHAR(255) NOT NULL,
   `img_link` VARCHAR(500) NOT NULL,
-  `notes` INTEGER NOT NULL,
+  `notes` VARCHAR(1000) NOT NULL,
   `owners_id` INTEGER NOT NULL,
 #   foreign key:
   FOREIGN KEY (`owners_id`) REFERENCES owners(`owners_id`),
