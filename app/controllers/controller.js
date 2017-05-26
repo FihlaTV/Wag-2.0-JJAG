@@ -53,8 +53,6 @@ module.exports = function(app) {
             myEmail = newUser.email;
             myID = results.users_id;
 
-
-
             res.render('ownerquestions', newUser);
 
         });
@@ -123,5 +121,42 @@ module.exports = function(app) {
 
     });
 
+    app.post('/administrator', function(req, res) {
+        res.redirect('selectpet');
+    });
+
+    app.get('/selectpet', function(req, res) {
+        db.pet.findAll({}).then(function (data) {
+            console.log('pet.findAll data', data);
+            var selectPetHbsObject = {selPet: data};
+            console.log('petsHbsObject', selectPetHbsObject);
+            res.render('selectpet', selectPetHbsObject);
+        });
+    });
+
+    app.get('/addevent/:pets_id', function(req, res) {
+        console.log('pet id selected', req.params.pets_id);
+        thisPetId = req.params.pets_id;
+
+        res.render('addevent');
+    });
+
+    app.post('/addevent', function(req, res) {
+
+        console.log('req.body', req.body);
+        // gather data from form fields and hit Event model
+        db.event.create({
+            pets_id: thisPetId,
+            event_type: req.body.event_type,
+            notes: req.body.notes,
+            img_link: req.body.img_link
+        }).then(function (results) {
+
+            console.log(results);
+            var addEventHbsObject = {addEventHbsObject: results};
+
+            res.json(results);
+        });
+    });
 
 };

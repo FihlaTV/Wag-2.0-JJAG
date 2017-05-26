@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Select Pet</h1>
+    <h3>Yay</h3>
+</div>
+
+<ul>
+    {{#each selPet}}
+        <li>
+
+            <a href="/addevent/{{this.pets_id}}">
+                {{this.pet_name}}
+            </a>
+
+        </li>
+    {{/each}}
+</ul>
+
+
