@@ -8,7 +8,6 @@ CREATE TABLE `users`
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `isAdmin` TINYINT DEFAULT false,
-
   PRIMARY KEY (`users_id`)
 );
 
@@ -22,7 +21,6 @@ CREATE TABLE `owners`
   `email` VARCHAR(255) NOT NULL,
   `phone` VARCHAR(255) NOT NULL,
   `users_id` INTEGER NOT NULL,
-
 #   foreign key:
   FOREIGN KEY (`users_id`) REFERENCES users(`users_id`),
   PRIMARY KEY (`owners_id`)
@@ -37,7 +35,8 @@ CREATE TABLE `pets`
   `img_link` VARCHAR(500) NOT NULL,
   `notes` VARCHAR(1000) NOT NULL,
   `owners_id` INTEGER NOT NULL,
-
+  `createdAt` TIMESTAMP,
+  `updatedAt` TIMESTAMP,
 #   foreign key:
   FOREIGN KEY (`owners_id`) REFERENCES owners(`owners_id`),
   PRIMARY KEY (`pets_id`)
@@ -52,7 +51,8 @@ CREATE TABLE `events`
   `notes` VARCHAR(1000) NOT NULL,
   `img_link` VARCHAR(255) NOT NULL,
   `pets_id` INTEGER NOT NULL,
-
+  `createdAt` TIMESTAMP,
+  `updatedAt` TIMESTAMP,
 #   foreign key:
   FOREIGN KEY (`pets_id`) REFERENCES pets(`pets_id`),
   PRIMARY KEY (`events_id`)

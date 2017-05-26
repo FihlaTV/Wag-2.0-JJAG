@@ -40,7 +40,7 @@ module.exports = function(app) {
 
             // res.render('ownerquestions', userinfo);
             var newUser = {};
-            console.log(results.email)
+            console.log(results.email);
             newUser.email = results.email;
             newUser.password = results.password;
 

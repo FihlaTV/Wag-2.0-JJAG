@@ -33,8 +33,16 @@ app.set("view engine", "hbs");
 // app.use("/", routes);
 require("./app/controllers/controller.js")(app);
 
+// set up foreign keys
+db["user"].hasMany(db["owner"], { foreignKey: 'users_id'});
+db["owner"].belongsTo(db["user"], {foreignKey: 'users_id'});
+db["owner"].hasMany(db["pet"], { foreignKey: 'owners_id'});
+db["pet"].belongsTo(db["owner"], {foreignKey: 'owners_id'});
+db["pet"].hasMany(db["event"], { foreignKey: 'pets_id'});
+db["event"].belongsTo(db["pet"], {foreignKey: 'pets_id'});
+
 // sync sequelize models and start express server
-db.sequelize.sync({ }).then(function() {
+db.sequelize.sync({}).then(function() {
     // starting server w/ listener
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);

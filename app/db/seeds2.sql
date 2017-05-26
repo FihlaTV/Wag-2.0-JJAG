@@ -6,6 +6,7 @@ VALUES ('themer@verizon.net','12345678',0),
   ('admin@admin.com','admin',1);
 
 INSERT INTO `owners` (`first_name`,`last_name`,`address`, `email`, `phone`, `users_id`)
+
 VALUES ('Ron', 'Gamache','9104 Theatre St. Orlando, FL 32801', 'test@email.com', "4073244759", 1),
   ('Darlene', 'Bridgett','449 Rocky River St. Clermont, FL 34711', 'test@email.com', "4073244759", 2),
   ('Wendie', 'Cothern','479 Saxton Street Belle Isle, FL 32809', 'test@email.com', "4072325032", 3),

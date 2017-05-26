@@ -53,6 +53,7 @@ module.exports = function(sequelize, Datatypes) {
 
     {
     timestamps: false
+
     });
 
     return Owner;
