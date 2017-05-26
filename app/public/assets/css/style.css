@@ -382,6 +382,57 @@ h6 {
 }
 
 /*------------------------
+---Hover Effects---
+-------------------------*/
+
+.hover-wrapper{
+    display: inline-block;
+    position: relative;
+}
+
+.hover-wrapper .hover-text{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    line-height: 250px;
+    text-align: center;
+    color:#fff;
+    z-index:2;
+    opacity:0;
+    -webkit-transform:translateY(-20px);
+    transform:translateY(-20px);
+    -webkit-transition:all .2s ease-out;
+    transition:all .2s ease-out;
+}
+
+.hover-wrapper:hover .hover-text{
+    -webkit-transform:translateY(0);
+    transform:translateY(0);
+    opacity:1;
+}
+
+.hover-wrapper:after{
+    position: absolute;
+    display: block;
+    content: "";
+    width:100%;
+    height:100%;
+    background: #299ED9;
+    top:0;
+    border:15px solid #fff;
+    border-radius: 50%;
+    opacity:0;
+    z-index:1;
+    -webkit-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;
+}
+
+.hover-wrapper:hover:after{
+    opacity:.8;
+}
+
+/*------------------------
 ---Scrolling animations---
 -------------------------*/
 
