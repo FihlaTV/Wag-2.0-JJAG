@@ -1,0 +1,55 @@
+
+#container {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+#main {
+    top: 0;
+}
+
+.header {
+    height: 65px;
+    background-color: #47C3C3;
+    color: white;
+}
+
+.left-ctrl {
+    font-size: 2rem;
+    position: relative;
+    bottom: -28px;
+}
+
+.right-ctrl {
+    font-size: 1.5rem;
+    position: relative;
+    bottom: -33px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    position: relative;
+    bottom: -23px;
+}
+
+.hero-bg {
+    height: 200px;
+    width: 100%;
+    background-image: url(../img/bg/blur4.jpg);
+    background-size: cover;
+}
+
+.hero-img {
+    height: 160px;
+    margin: 20px;
+}
+
+.function {
+    font-size: 2.5rem;
+}
+
+.filter-row {
+    border: 1px lightgray solid;
+    /*height: 500px;*/
+}

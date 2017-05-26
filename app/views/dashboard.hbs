@@ -2,3 +2,11 @@
     <h1>Dashboard</h1>
     <h3>Hurray! you are logged in.</h3>
 </div>
+
+<ul>
+    {{#each addPetHbsObject}}
+        <li>
+            {{this.pet_name}}
+        </li>
+    {{/each}}
+</ul>
