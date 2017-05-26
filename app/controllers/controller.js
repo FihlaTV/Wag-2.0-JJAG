@@ -1,5 +1,9 @@
 var db = require("../models");
 
+   var myEmail;
+   var myID;
+
+
 module.exports = function(app) {
 
     // Create routes
@@ -20,6 +24,37 @@ module.exports = function(app) {
         res.render('signup');
     });
 
+    app.post('/signup', function (req, res) {
+
+        console.log("New User: ", req.body); 
+
+        db.user.create({
+            email: req.body.email,
+            password: req.body.password,
+            isAdmin: false
+
+        }).then(function(results) {
+            // console.log("results");
+            // var userinfo = {foobar:results};
+            // console.log("User Info: ", userinfo); 
+
+            // res.render('ownerquestions', userinfo);
+            var newUser = {};
+            console.log(results.email);
+            newUser.email = results.email;
+            newUser.password = results.password;
+
+            myEmail = newUser.email;
+            myID = results.users_id;
+
+
+
+            res.render('ownerquestions', newUser);
+
+        });
+    });
+
+
     app.get('/ownerquestions', function(req, res) {
         res.render('ownerquestions');
     });
@@ -29,12 +64,13 @@ module.exports = function(app) {
         console.log('req.body', req.body);
         // gather data from form fields and hit Owner model
         db.owner.create({
-            users_id: 1,
+            users_id: myID,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
-            email: req.body.email,
-            address: req.body.email,
+            email: myEmail,
+            address: req.body.address,
             phone: req.body.phone
+
         }).then(function(results) {
         //THEN res.redirect to /dashboard
             console.log(results);

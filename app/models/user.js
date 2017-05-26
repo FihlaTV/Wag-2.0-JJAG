@@ -17,6 +17,10 @@ module.exports = function(sequelize, Datatypes) {
             type: Datatypes.BOOLEAN,
             defaultValue: 0
         }
+    },
+    
+    {
+    timestamps: false
     });
  
     return User;
