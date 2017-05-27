@@ -29,7 +29,7 @@ module.exports = function(app) {
         res.render('signup');
     });
 
-
+    // add new user to users table
     app.post('/signup', function (req, res) {
 
         console.log("New User: ", req.body); 
@@ -41,10 +41,6 @@ module.exports = function(app) {
 
         }).then(function(results) {
             // console.log("results");
-            // var userinfo = {foobar:results};
-            // console.log("User Info: ", userinfo); 
-
-            // res.render('ownerquestions', userinfo);
             var newUser = {};
             console.log(results.email);
             newUser.email = results.email;
@@ -52,20 +48,18 @@ module.exports = function(app) {
 
             myEmail = newUser.email;
             myID = results.users_id;
-
+            // new users redirected to ownerquestions
             res.render('ownerquestions', newUser);
 
         });
     });
 
-
-
     app.get('/ownerquestions', function(req, res) {
         res.render('ownerquestions');
     });
 
+    // add owner info to owner table
     app.post('/ownerquestions', function(req, res) {
-
         console.log('req.body', req.body);
         // gather data from form fields and hit Owner model
         db.owner.create({
@@ -78,7 +72,7 @@ module.exports = function(app) {
 
         }).then(function(results) {
             thisOwnerId = results.owners_id;
-        //THEN res.redirect to /dashboard
+        // new owners redirected to addpet
             console.log(results);
             res.redirect('/addpet');
         });
@@ -88,8 +82,8 @@ module.exports = function(app) {
         res.render('addpet');
     });
 
+    // add pet info to pets table
     app.post('/addpet', function(req, res) {
-
         console.log('req.body', req.body);
         // gather data from form fields and hit Pet model
         db.pet.create({
@@ -99,7 +93,7 @@ module.exports = function(app) {
             img_link: req.body.img_link,
             notes: req.body.notes
         }).then(function(results) {
-            //THEN res.redirect to /dashboard
+            //THEN redirect to /dashboard
             console.log(results);
             var addPetHbsObject = {addPetHbsObject: results};
             res.render('dashboard', addPetHbsObject);
@@ -110,6 +104,7 @@ module.exports = function(app) {
         res.render('dashboard');
     });
 
+    // display all pets on administrator landing page
     app.get('/administrator', function(req, res) {
         db.pet.findAll({}).then(function(data) {
             console.log('pet.findAll data', data);
@@ -121,10 +116,12 @@ module.exports = function(app) {
 
     });
 
+    // when adding events, redirect to select pets page
     app.post('/administrator', function(req, res) {
         res.redirect('selectpet');
     });
 
+    // get all pets from db to display as links to select (radio buttons or other? to select multiple pets?
     app.get('/selectpet', function(req, res) {
         db.pet.findAll({}).then(function (data) {
             console.log('pet.findAll data', data);
@@ -141,6 +138,7 @@ module.exports = function(app) {
         res.render('addevent');
     });
 
+    // add event to selected pet_id
     app.post('/addevent', function(req, res) {
 
         console.log('req.body', req.body);
