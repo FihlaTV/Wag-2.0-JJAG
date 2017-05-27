@@ -22,7 +22,62 @@ module.exports = function(app) {
 
     app.post('/signin', function(req, res) {
         // will add logic to check if sign-in info is correct
-        res.redirect('dashboard');
+    //     var checkEmail,
+    //         checkPassword;
+
+       checkEmail = req.body.email ;
+       checkPassword = req.body.password ;
+
+       console.log(checkEmail + ", " + checkPassword);
+
+       db.user.findOne({
+
+            where: {
+                email: checkEmail
+            }
+
+       }).then(function(userinfo) {
+
+            if (userinfo) {
+
+                console.log("Success!");
+                console.log(checkEmail + ", " + checkPassword);
+
+               var loggedIn = {};
+                console.log(userinfo.email);
+                loggedIn.email = userinfo.email;
+                loggedIn.password = userinfo.password;
+
+                if(userinfo.isAdmin) {
+
+                    res.render('administrator', loggedIn);
+
+                }
+
+                else{
+                     res.render('dashboard', loggedIn);
+                }
+               
+
+            }
+
+            else {
+                console.log("User not found");
+                console.log(userinfo);
+                res.render('signin');
+            };
+
+    });
+
+//     isEmailUnique(checkEmail).then(isUnique => {
+//     if (isUnique) {
+//         console.log("UNIQUE!!")
+//     }
+
+//     else {console.log("NOPE")}
+// });
+
+       // res.redirect('dashboard');
     });
 
     app.get('/signup', function(req, res) {
@@ -123,5 +178,23 @@ module.exports = function(app) {
 
     });
 
+    app.get('/logout', function (req, res) {
+
+
+
+        res.render('signin');
+    });
+
 
 };
+
+
+function isEmailUnique (thisEmail) {
+    return db.user.count({ where: { email: thisEmail } })
+      .then(count => {
+        if (count != 0) {
+          return true;
+        }
+        return false;
+    });
+}

@@ -1,3 +1,5 @@
+SET sql_mode = '';
+
 CREATE SCHEMA `wagr_db`;
 
 USE  `wagr_db`;
