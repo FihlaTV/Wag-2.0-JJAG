@@ -50,7 +50,7 @@ module.exports = function(app) {
 
                 if(userinfo.isAdmin) {
 
-                    res.render('administrator', loggedIn);
+                    res.redirect('/administrator');
 
                 }
 
