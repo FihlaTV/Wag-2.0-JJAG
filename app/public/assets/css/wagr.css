@@ -1,3 +1,7 @@
+body {
+    font-family: 'Asap', sans-serif;
+}
+
 
 #container {
     overflow-x: hidden;
@@ -9,28 +13,52 @@
     top: 0;
 }
 
+.dailyreport {
+    background-color: #cccccc;
+    color: white;
+    font-weight: 500;
+    padding: 5px 5px 5px 15px;
+
+}
+
+.event-icon {
+    margin: 15px 15px 15px 0;
+    height: 50px;
+    float: left;
+}
+
+.event-subtitle, .event-time, .event-title {
+    /*font-size: 11px;*/
+    line-height: .75rem;
+}
+
+.event-time {
+    color: #a5a5a5;
+}
+
+.event-subtitle {
+    color: #4f4f4f;
+}
+
+.event-title {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.function {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+.filter-row {
+    border: 1px lightgray solid;
+    /*height: 500px;*/
+}
+
 .header {
     height: 65px;
     background-color: #47C3C3;
     color: white;
-}
-
-.left-ctrl {
-    font-size: 2rem;
-    position: relative;
-    bottom: -28px;
-}
-
-.right-ctrl {
-    font-size: 1.5rem;
-    position: relative;
-    bottom: -33px;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    position: relative;
-    bottom: -23px;
 }
 
 .hero-bg {
@@ -45,11 +73,20 @@
     margin: 20px;
 }
 
-.function {
-    font-size: 2.5rem;
+.left-ctrl {
+    font-size: 2rem;
+    position: relative;
+    bottom: -28px;
 }
 
-.filter-row {
-    border: 1px lightgray solid;
-    /*height: 500px;*/
+.page-title {
+    font-size: 2.5rem;
+    position: relative;
+    bottom: -23px;
+}
+
+.right-ctrl {
+    font-size: 1.5rem;
+    position: relative;
+    bottom: -33px;
 }
