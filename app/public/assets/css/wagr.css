@@ -1,9 +1,15 @@
+html, body {
+    height: 100%;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Asap', sans-serif;
 }
 
-
 #container {
+    flex: 1 0 auto;
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -13,12 +19,25 @@ body {
     top: 0;
 }
 
+.back-ctrl {
+    font-size: 2rem;
+    position: relative;
+    bottom: -30px;
+}
+
 .dailyreport {
     background-color: #cccccc;
     color: white;
     font-weight: 500;
     padding: 5px 5px 5px 15px;
 
+}
+
+.edit-ctrl {
+    font-size: 1.7rem;
+    position: relative;
+    bottom: -30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .event-icon {
@@ -33,16 +52,29 @@ body {
 }
 
 .event-time {
-    color: #a5a5a5;
+    color: #bbbbbb;
 }
 
 .event-subtitle {
-    color: #4f4f4f;
+    color: #666666;
 }
 
 .event-title {
-    margin-top: 20px;
+    margin-top: 2rem;
+    font-size: 1.6rem;
     font-weight: 500;
+}
+
+.footer {
+    height: 60px;
+    background-color: #444e81;
+    color: white;
+}
+
+.footer-text {
+    font-size: 1.6rem;
+    position: relative;
+    bottom: -18px;
 }
 
 .function {
@@ -64,25 +96,28 @@ body {
 .hero-bg {
     height: 200px;
     width: 100%;
-    background-image: url(../img/bg/blur4.jpg);
+    background-image: url(../img/bg/blur1.jpg);
     background-size: cover;
 }
 
 .hero-img {
     height: 160px;
     margin: 20px;
+    border: 4px white solid;
 }
 
-.left-ctrl {
-    font-size: 2rem;
-    position: relative;
-    bottom: -28px;
+.image-daily {
+    width: 100%;
 }
 
 .menu-ctrl {
     font-size: 2rem;
     position: relative;
-    bottom: -30px;
+    bottom: -32px;
+}
+
+.mypet-row {
+    border-bottom: 2px #eee solid;
 }
 
 .page-title {
@@ -95,7 +130,6 @@ body {
     margin: 15px 15px 15px 0;
     height: 75px;
     float: left;
-    border-bottom: 2px #cccccc solid;
 }
 
 .pet-name {
@@ -108,11 +142,6 @@ body {
 .plus-ctrl {
     font-size: 2rem;
     position: relative;
-    bottom: -30px;
+    bottom: -32px;
 }
 
-.right-ctrl {
-    font-size: 1.5rem;
-    position: relative;
-    bottom: -33px;
-}
