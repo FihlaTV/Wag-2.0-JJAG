@@ -1,3 +1,4 @@
+
 html, body {
     height: 100%;
 }
@@ -6,6 +7,10 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Asap', sans-serif;
+}
+
+.form-label {
+    margin-top: 1rem;
 }
 
 #container {
@@ -23,6 +28,10 @@ body {
     font-size: 2rem;
     position: relative;
     bottom: -30px;
+}
+
+.btn-file input[type=file] {
+    opacity: 0;
 }
 
 .dailyreport {
@@ -79,7 +88,6 @@ body {
 
 .function {
     font-size: 2.5rem;
-    margin-top: 1rem;
 }
 
 .filter-row {
@@ -98,6 +106,14 @@ body {
     width: 100%;
     background-image: url(../img/bg/blur1.jpg);
     background-size: cover;
+    margin-bottom: 1.5rem;
+}
+
+.hero-bg-blank {
+    height: 200px;
+    width: 100%;
+    background-color: #ddd;
+    margin-bottom: 1.5rem;
 }
 
 .hero-img {
@@ -139,9 +155,11 @@ body {
     font-weight: 500;
 }
 
-.plus-ctrl {
+.plus-ctrl, .bubble-ctrl {
     font-size: 2rem;
     position: relative;
     bottom: -32px;
 }
+
+
 
