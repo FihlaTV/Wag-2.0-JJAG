@@ -7,45 +7,20 @@
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>User Page</title>
+    <title>Add Pet</title>
 
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!--Bootstrap Main Theme-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"-->
-    <!--integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <!-- FontAwesome -->
-    <script src="https://use.fontawesome.com/8eb4ed0827.js"></script>
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!--<script src="ashttps://use.fontawesome.com/8eb4ed0827.js"></script>-->
     <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,500,700|Roboto:100,300" rel="stylesheet">
+    <!--Simple Line Icons-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <!--Local StyleSheet-->
     <link rel="stylesheet" href="assets/css/wagr.css">
-    <!-- ==============================================
-     CSS
-     =============================================== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/flexslider.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-    <!-- ==============================================
-    Fonts
-    =============================================== -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700' rel='stylesheet'
-          type='text/css'>
-
-
-    <!-- ==============================================
-    JS
-    =============================================== -->
-
-    <!--[if lt IE 9]>
-    <script src="assets/libs/respond.min.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" src="assets/libs/modernizr.min.js"></script>
 </head>
 <body>
 
@@ -55,85 +30,61 @@
         <div class="row">
             <div class="header">
                 <div class="container">
-                    <div class="col-xs-2 left-ctrl"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                    <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
                     <div class="col-xs-8 text-center page-title">
-                        Magic Steven Tyler
+                        Add Pet
                     </div>
-                    <div class="col-xs-2 text-right right-ctrl">Edit</div>
+                    <!--<div class="col-xs-2 text-right bubble-ctrl icon-bubble"></div>-->
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="div hero-bg text-center">
-                <img src="assets/img/dogs/steven.jpg" alt="" class="img-circle hero-img">
-            </div>
-        </div>
-
-        <div class="col-xs-6 text-center">
-            <div class="function"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
-            <div>Message</div>
-        </div>
-        <div class="col-xs-6 text-center">
-            <div class="function"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
-            <p>Calendar</p>
-        </div>
-
-        <br><br><br><br>
-        <!--=== Pet Form ===-->
-
-
-        <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left" action=""
-              method="post" novalidate>
-
-            <div class="form-group">
-                <div class="controls">
-                    <input id="pet-name" name="contactName" class="form-control requiredField" type="text"
-                           data-error-empty="is required">
-                    <label class="control-label" for="pet-name">Pet Name</label>
+        <form name="addPetForm">
+            <div class="row">
+                <div class="div hero-bg-blank text-center btn-file">
+                    <label class="btn-file">
+                        <img src="assets/img/icons/addPhoto.svg" alt="" class="img-circle hero-img">
+                        <input name="petImage" type="file" id="inputPetImage">
+                    </label>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="inputPetName">Pet Name</label>
+                            <input name="petName" id="inputPetName" type="text" class="form-control" placeholder="Fido">
+                        </div>
 
-            <div class="form-group">
-                <div class="controls">
-                    <input id="pet-type" name="contactName" class="form-control requiredField" type="text"
-                           data-error-empty="is required">
-                    <label class="control-label" for="pet-type">Breed</label>
-                </div>
-            </div><!-- End last name input -->
+                        <div class="form-group">
+                            <label for="inputPetType">Pet Breed</label>
+                            <input name=petType" id="inputPetType" type="text" class="form-control"
+                                   placeholder="Dachshund">
+                        </div>
 
-            <div class="form-group">
-                <div class="controls">
-                            <textarea id="contact-message" name="comments" class="form-control requiredField" rows="6"
-                                      data-error-empty="is required"></textarea>
-                    <label class="control-label" for="contact-message">Notes</label>
+                        <div class="form-group">
+                            <label for="inputPetMessage">Anything you would like us to know?</label>
+                            <!--<input type="text" class="form-control" id="inputPetName" placeholder="Fido">-->
+                            <textarea name="petMessage" id="inputPetMessage" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div><!-- End notes -->
+            </div>
         </form>
     </div>
 </div>
 
+<a id="addPetSubmit" type="submit" href="#">
+    <div class="footer text-center ">
+        <p class="footer-text">SUBMIT</p>
+    </div>
+</a>
 <!--jQuery-->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="assets/js/jquery.js"></script>
 <!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+<script src="assets/js/bootstrap.js"></script>
 <!--Local JS-->
-<script src="assets/javascript/script.js"></script>
-<!-- ==============================================
-SCRIPTS
-=============================================== -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="assets/libs/bootstrap.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/twitterFetcher_min.js"></script>
-<script src="assets/js/jquery.flexslider.min.js"></script>
-<script src="assets/js/contact.js"></script>
-<script src="assets/js/scripts.js"></script>
-
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>
