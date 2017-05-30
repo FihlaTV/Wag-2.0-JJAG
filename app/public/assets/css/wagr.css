@@ -9,6 +9,11 @@ body {
     font-family: 'Asap', sans-serif;
 }
 
+figcaption {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
 .form-label {
     margin-top: 1rem;
 }
@@ -22,6 +27,14 @@ body {
 
 #main {
     top: 0;
+}
+
+.activity-spacer-row {
+    height: 25vw;
+}
+.activity-icon {
+    height: 75px;
+    margin-top: 3rem;
 }
 
 .back-ctrl {
@@ -42,7 +55,7 @@ body {
 
 }
 
-.edit-ctrl {
+.edit-ctrl, .cancel-ctrl {
     font-size: 1.7rem;
     position: relative;
     bottom: -30px;
