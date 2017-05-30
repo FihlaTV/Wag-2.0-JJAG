@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <form name="addPetForm">
+            <form id="addpet" name="addPetForm" method="post" action="addpet">
             <div class="row">
                 <div class="div hero-bg-blank text-center btn-file">
                     <label class="btn-file">
@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <label for="inputPetType">Pet Breed</label>
-                        <input name=pet_type" id="inputPetType" type="text" class="form-control"
+                        <input name="pet_type" id="inputPetType" type="text" class="form-control"
                                placeholder="Dachshund">
                     </div>
 
@@ -45,20 +45,17 @@
                 </div>
             </div>
         </div>
+    <input id="addPetSubmit" type="submit">
+        <div class="footer text-center ">
+            <p class="footer-text">SUBMIT</p>
+        </div>
+    </input>
     </form>
     </div>
     </div>
 
-    <a id="addPetSubmit" type="submit" href="#">
-        <div class="footer text-center ">
-            <p class="footer-text">SUBMIT</p>
-        </div>
-    </a>
 
-    <!--<div class="container">-->
-    <!--<h1>Add a pet</h1>-->
-    <!--<h3>Yay</h3>-->
-    <!--</div>-->
+
 
     <!--<form id="addpet" name="addpet" method="post" action="addpet">-->
     <!--<label for="pet_name">Pet Name</label>-->
