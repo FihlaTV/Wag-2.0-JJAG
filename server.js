@@ -18,7 +18,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // serve static content from public dir
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static("app/public"));
+
 
 
 
