@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Events</h1>
+
+    <h3>Daily Activities for {{this.pet_name}}</h3>
+
+</div>
+
+<ul>
+    {{#each eventHbsObject}}
+        <li>
+            {{this.pet_name}}
+            {{this.event_type}}
+            {{this.notes}}
+            <img src="{{this.img_link}}">
+        </li>
+    {{/each}}
+</ul>
