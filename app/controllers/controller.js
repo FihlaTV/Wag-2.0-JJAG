@@ -24,54 +24,34 @@ module.exports = function(app) {
         // will add logic to check if sign-in info is correct
     //     var checkEmail,
     //         checkPassword;
-
        checkEmail = req.body.email ;
        checkPassword = req.body.password ;
-
        console.log(checkEmail + ", " + checkPassword);
-
        db.user.findOne({
-
             where: {
                 email: checkEmail
             }
-
        }).then(function(userinfo) {
-
             if (userinfo) {
-
                 console.log("Success!");
                 console.log(checkEmail + ", " + checkPassword);
-
                var loggedIn = {};
                 console.log(userinfo.email);
                 loggedIn.email = userinfo.email;
                 loggedIn.password = userinfo.password;
-
                 if(userinfo.isAdmin) {
-
                     res.redirect('/administrator');
-
                 }
-
                 else {
-
                      res.render('dashboard', loggedIn);
                 }
-               
-
             }
-
             else {
                 console.log("User not found");
-
                 var details2 = {};
-
-                details2.myerror = "That email doesn't exist!"
-               
+                details2.myerror = "That email doesn't exist!";
                 res.render('signin', details2);
-            };
-
+            }
          });
 
 
@@ -83,40 +63,23 @@ module.exports = function(app) {
 
     // add new user to users table
     app.post('/signup', function (req, res) {
-
-        console.log("New User: ", req.body); 
-
+        console.log("New User: ", req.body);
         db.user.findOne({
-
-
             where: {
                 email: req.body.email
             }
-
        }).then(function(userinfo) {
-
             if (userinfo) {
-
                 console.log("That email already exists!");
-
                 var details = {};
-
-                details.myerror = "That email already exists!"
-
-
+                details.myerror = "That email already exists!";
                 res.render("signup", details);
-
-
-
             }
-
             else {
-
                     db.user.create({
                         email: req.body.email,
                         password: req.body.password,
                         isAdmin: false
-
                     }).then(function(results) {
              
                         var newUser = {};
@@ -183,6 +146,7 @@ module.exports = function(app) {
             //THEN redirect to /dashboard
             console.log(results);
             var addPetHbsObject = {addPetHbsObject: results};
+            // should this res.redirect instead?
             res.render('dashboard', addPetHbsObject);
         });
     });
@@ -241,13 +205,31 @@ module.exports = function(app) {
             console.log(results);
             var addEventHbsObject = {addEventHbsObject: results};
 
-            res.json(results);
+            res.redirect('administrator');
         });
     });
 
+    app.get('/events/:pets_id', function(req, res) {
+        console.log('pet id selected', req.params.pets_id);
+        thisPetId = req.params.pets_id;
+
+        db.event.findAll({
+            where: {
+                pets_id: req.params.pets_id
+            }
+        }).then(function(eventinfo) {
+            console.log(eventinfo);
+            var eventHbsObject = {eventHbsObject: eventinfo};
+        res.render('events', eventHbsObject);
+        });
+
+    });
+
+
+
+
+
     app.get('/logout', function (req, res) {
-
-
 
         res.render('signin');
     });
