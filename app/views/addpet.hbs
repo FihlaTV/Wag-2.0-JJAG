@@ -1,72 +1,74 @@
 <div id="container">
-<div id="main">
-
-    <div class="row">
-        <div class="header">
-            <div class="container">
-                <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
-                <div class="col-xs-8 text-center page-title">
-                    Add Pet
-                </div>
-                <!--<div class="col-xs-2 text-right bubble-ctrl icon-bubble"></div>-->
-            </div>
-        </div>
-
-            <form id="addpet" name="addPetForm" method="post" action="addpet">
-            <div class="row">
-                <div class="div hero-bg-blank text-center btn-file">
-                    <label class="btn-file">
-                        <img src="assets/img/icons/addPhoto.svg" alt="" class="img-circle hero-img">
-                        <input name="petImage" type="file" id="inputPetImage">
-                    </label>
-                </div>
-            </div>
-
+    <div id="main">
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="header">
                 <div class="container">
-                    <div class="form-group">
-                        <label for="inputPetName">Pet Name</label>
-                        <input name="pet_name" id="inputPetName" type="text" class="form-control" placeholder="Fido">
+                    <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                    <div class="col-xs-8 text-center page-title">
+                        Add Pet
                     </div>
-
-                    <div class="form-group">
-                        <label for="inputPetType">Pet Breed</label>
-                        <input name="pet_type" id="inputPetType" type="text" class="form-control"
-                               placeholder="Dachshund">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputPetMessage">Anything you would like us to know?</label>
-                        <!--<input type="text" class="form-control" id="inputPetName" placeholder="Fido">-->
-                        <textarea name="notes" id="inputPetMessage" class="form-control" rows="3"></textarea>
-                    </div>
+                    <!--<div class="col-xs-2 text-right bubble-ctrl icon-bubble"></div>-->
                 </div>
             </div>
+
+            <form id="addpet" name="addPetForm" method="post" action="addpet">
+                <div class="row">
+                    <div class="div hero-bg-blank text-center btn-file">
+                        <label class="btn-file">
+                            <img src="assets/img/icons/addPhoto.svg" alt="" class="img-circle hero-img">
+                            <input name="petImage" type="file" id="inputPetImage">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="container">
+                                <div class="form-group">
+                                    <label for="inputPetName">Pet Name</label>
+                                    <input name="pet_name" id="inputPetName" type="text" class="form-control"
+                                           placeholder="Fido">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputPetType">Pet Breed</label>
+                                    <input name="pet_type" id="inputPetType" type="text" class="form-control"
+                                           placeholder="Dachshund">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputPetMessage">Anything you would like us to know?</label>
+                                    <!--<input type="text" class="form-control" id="inputPetName" placeholder="Fido">-->
+                                    <textarea name="notes" id="inputPetMessage" class="form-control"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<input id="addPetSubmit" type="ubmit">-->
+                <div class="footer text-center ">
+                    <p class="footer-text" id="addPetSubmit">SUBMIT</p>
+                </div>
+            </form>
         </div>
-    <input id="addPetSubmit" type="submit">
-        <div class="footer text-center ">
-            <p class="footer-text">SUBMIT</p>
-        </div>
-    </input>
-    </form>
     </div>
-    </div>
+</div>
 
 
+<!--<form id="addpet" name="addpet" method="post" action="addpet">-->
+<!--<label for="pet_name">Pet Name</label>-->
+<!--<input class="text" name="pet_name" type="text"/> <br>-->
+<!--<label for="pet_type">Pet Type</label>-->
+<!--<input name="pet_type" type="text"/> <br>-->
+<!--<label for="img_link">Link to an Image of your Pet</label>-->
+<!--<input name="img_link" type="text"/> <br>-->
+<!--<label for="notes">Any special notes about your Pet?</label>-->
+<!--<input name="notes" type="text"/> <br>-->
 
-
-    <!--<form id="addpet" name="addpet" method="post" action="addpet">-->
-    <!--<label for="pet_name">Pet Name</label>-->
-    <!--<input class="text" name="pet_name" type="text"/> <br>-->
-    <!--<label for="pet_type">Pet Type</label>-->
-    <!--<input name="pet_type" type="text"/> <br>-->
-    <!--<label for="img_link">Link to an Image of your Pet</label>-->
-    <!--<input name="img_link" type="text"/> <br>-->
-    <!--<label for="notes">Any special notes about your Pet?</label>-->
-    <!--<input name="notes" type="text"/> <br>-->
-
-    <!--<input class="btn" type="submit" value="Add"/>-->
-    <!--</form>-->
+<!--<input class="btn" type="submit" value="Add"/>-->
+<!--</form>-->
 
