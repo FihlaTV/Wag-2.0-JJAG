@@ -4,6 +4,7 @@
 .navbar-brand {
     color: #202c36;
 }
+
 .facebark {
     margin-right: 300px;
 }
@@ -67,7 +68,7 @@ h6 {
 
 }
 
-.scoreHolder {
+/*.scoreHolder {
 
     font-weight: bolder;
 }
@@ -115,7 +116,7 @@ h6 {
 .loserClass {
 
     color: red;
-}
+}*/
 
 .glow {
 
