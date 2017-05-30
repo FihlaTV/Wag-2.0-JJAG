@@ -54,7 +54,8 @@ module.exports = function(app) {
 
                 }
 
-                else{
+                else {
+
                      res.render('dashboard', loggedIn);
                 }
                
@@ -63,21 +64,17 @@ module.exports = function(app) {
 
             else {
                 console.log("User not found");
-                console.log(userinfo);
-                res.render('signin');
+
+                var details2 = {};
+
+                details2.myerror = "That email doesn't exist!"
+               
+                res.render('signin', details2);
             };
 
-    });
+         });
 
-//     isEmailUnique(checkEmail).then(isUnique => {
-//     if (isUnique) {
-//         console.log("UNIQUE!!")
-//     }
 
-//     else {console.log("NOPE")}
-// });
-
-       // res.redirect('dashboard');
     });
 
     app.get('/signup', function(req, res) {
@@ -89,24 +86,59 @@ module.exports = function(app) {
 
         console.log("New User: ", req.body); 
 
-        db.user.create({
-            email: req.body.email,
-            password: req.body.password,
-            isAdmin: false
+        db.user.findOne({
 
-        }).then(function(results) {
-            // console.log("results");
-            var newUser = {};
-            console.log(results.email);
-            newUser.email = results.email;
-            newUser.password = results.password;
 
-            myEmail = newUser.email;
-            myID = results.users_id;
-            // new users redirected to ownerquestions
-            res.render('ownerquestions', newUser);
+            where: {
+                email: req.body.email
+            }
 
-        });
+       }).then(function(userinfo) {
+
+            if (userinfo) {
+
+                console.log("That email already exists!");
+
+                var details = {};
+
+                details.myerror = "That email already exists!"
+
+
+                res.render("signup", details);
+
+
+
+            }
+
+            else {
+
+                    db.user.create({
+                        email: req.body.email,
+                        password: req.body.password,
+                        isAdmin: false
+
+                    }).then(function(results) {
+             
+                        var newUser = {};
+                        console.log(results.email);
+                        newUser.email = results.email;
+                        newUser.password = results.password;
+
+                        myEmail = newUser.email;
+                        myID = results.users_id;
+
+
+
+                        res.render('ownerquestions', newUser);
+
+                    });
+
+            }
+       });
+
+
+
+       
     });
 
     app.get('/ownerquestions', function(req, res) {
@@ -225,12 +257,3 @@ module.exports = function(app) {
 };
 
 
-function isEmailUnique (thisEmail) {
-    return db.user.count({ where: { email: thisEmail } })
-      .then(count => {
-        if (count != 0) {
-          return true;
-        }
-        return false;
-    });
-}
