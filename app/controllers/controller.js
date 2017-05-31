@@ -14,7 +14,7 @@ module.exports = function (app) {
 
     // Create routes
     app.get('/', function (req, res) {
-        res.redirect('/signin');
+        res.render('wagr');
     });
 
     app.get('/signin', function (req, res) {
@@ -149,6 +149,7 @@ module.exports = function (app) {
             thisOwnerId = results.owners_id;
             // new owners redirected to addpet
             console.log(results);
+            console.log("new owner created, should redirect here");
             res.redirect('/addpet');
         });
     });
