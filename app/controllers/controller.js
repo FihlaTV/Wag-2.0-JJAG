@@ -42,7 +42,7 @@ module.exports = function (app) {
                 loggedIn.password = userinfo.password;
 
                 if (userinfo.isAdmin) {
-                    res.redirect('/administrator');
+                    res.redirect('/adminDashboard');
                 }
                 else {
                     res.redirect('/dashboard');
@@ -51,7 +51,7 @@ module.exports = function (app) {
 
                     var thisIDCheck = userinfo.users_id;
                     if (userinfo.isAdmin) {
-                        res.redirect('/administrator');
+                        res.redirect('/adminDashboard');
                     }
                     else {
 
@@ -186,25 +186,25 @@ module.exports = function (app) {
             console.log('dashboard pet.findAll data', data);
             var ownerHbsObject = {foobar: data};
             console.log('ownerHbsObject', ownerHbsObject);
-            res.render('mypets', ownerHbsObject);
+            res.render('userDashboard', ownerHbsObject);
         });
     });
 
-    // display all pets on administrator landing page
-    app.get('/administrator', function (req, res) {
+    // display all pets on adminDashboard landing page
+    app.get('/adminDashboard', function (req, res) {
         db.pet.findAll({}).then(function (data) {
             console.log('pet.findAll data', data);
             var petsHbsObject = {foobar: data};
             console.log('petsHbsObject', petsHbsObject);
 
-            res.render('administrator', petsHbsObject);
+            res.render('adminDashboard', petsHbsObject);
         });
 
     });
 
 
     // when adding events, redirect to select pets page
-    app.post('/administrator', function (req, res) {
+    app.post('/adminDashboard', function (req, res) {
         res.redirect('selectactivity');
     });
 
@@ -246,7 +246,7 @@ module.exports = function (app) {
 
             console.log(results);
 
-            res.redirect('administrator');
+            res.redirect('adminDashboard');
         });
     });
 

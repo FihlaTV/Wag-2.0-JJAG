@@ -98,6 +98,10 @@ input {
     font-weight: 500;
 }
 
+.fiftycent {
+    opacity: 0.5;
+}
+
 .footer {
     height: 60px;
     background-color: #444e81;
