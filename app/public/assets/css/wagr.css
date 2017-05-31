@@ -77,7 +77,6 @@ input {
 }
 
 .event-subtitle, .event-time, .event-title {
-    /*font-size: 11px;*/
     line-height: .75rem;
 }
 
@@ -147,6 +146,19 @@ input {
     width: 100%;
 }
 
+.ios-battery {
+    margin-right: 1rem;
+}
+
+.ios-signal {
+    margin-left: 1rem;
+}
+
+.iphoneStatus {
+    margin: 0;
+    display: inline-block;
+}
+
 .menu-ctrl {
     font-size: 2rem;
     position: relative;
@@ -161,6 +173,11 @@ input {
     font-size: 2.5rem;
     position: relative;
     bottom: -25px;
+}
+
+.page-title-bar {
+    position: relative;
+    bottom: 16px;
 }
 
 .pet-icon {
@@ -187,7 +204,7 @@ input {
     background-size: cover;
 }
 
-.signup-button, .signin-button2{
+.signup-button, .signin-button2 {
     height: 6rem;
     margin: 1.5rem 0;
     border: none;
@@ -198,7 +215,7 @@ input {
 }
 
 .signin-button2 {
-  margin-top: 6rem;
+    margin-top: 6rem;
 }
 
 .signin-input, .signin-button {
@@ -207,8 +224,8 @@ input {
     text-align: center;
     color: white;
     border-radius: 1.5rem;
-    border: 1px rgba(255,255,255,0.5) solid;
-    background-color: rgba(255,255,255,0.3);
+    border: 1px rgba(255, 255, 255, 0.5) solid;
+    background-color: rgba(255, 255, 255, 0.3);
     font-size: 1.75rem;
 }
 
@@ -222,7 +239,7 @@ input {
 }
 
 .tagline {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 2rem;
 }
 
@@ -242,11 +259,21 @@ input {
     font-weight: 100;
 }
 
+.form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
 
-.form-control::-webkit-input-placeholder { color: rgba(255,255,255,0.6); }
-.form-control:-moz-placeholder { color: rgba(255,255,255,0.6); }
-.form-control::-moz-placeholder { color: rgba(255,255,255,0.6); }
-.form-control:-ms-input-placeholder { color: rgba(255,255,255,0.6); }
+.form-control:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
 
 
 
