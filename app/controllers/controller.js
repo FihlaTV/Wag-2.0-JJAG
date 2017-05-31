@@ -166,7 +166,8 @@ module.exports = function (app) {
             pet_name: req.body.pet_name,
             pet_type: req.body.pet_type,
             img_link: req.body.img_link,
-            notes: req.body.notes
+            notes: req.body.notes,
+            checkedIn: 0
         }).then(function (results) {
             //THEN redirect to /dashboard
             console.log(results);

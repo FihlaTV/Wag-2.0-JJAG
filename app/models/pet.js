@@ -29,6 +29,9 @@ module.exports = function(sequelize, Datatypes) {
         },
         notes: {
             type: Datatypes.STRING
+        },
+        checkedIn: {
+            type: Datatypes.BOOLEAN
         }
     });
 
