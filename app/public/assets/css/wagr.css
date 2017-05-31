@@ -55,6 +55,10 @@ input {
     opacity: 0;
 }
 
+.checkin-smallcheck {
+    height: 2.5rem;
+}
+
 .dailyreport {
     background-color: #cccccc;
     color: white;
@@ -152,6 +156,10 @@ input {
 
 .ios-signal {
     margin-left: 1rem;
+}
+
+.ipad-sidebump {
+    padding: 0 4rem;
 }
 
 .iphoneStatus {
@@ -262,15 +270,12 @@ input {
 .form-control::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
-
 .form-control:-moz-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
-
 .form-control::-moz-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
-
 .form-control:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
