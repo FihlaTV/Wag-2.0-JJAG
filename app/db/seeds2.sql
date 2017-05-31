@@ -13,7 +13,7 @@ VALUES ('Ron', 'Gamache','9104 Theatre St. Orlando, FL 32801', 'test@email.com',
   ('Joey', 'Makuch','889 South High Dr. Orlando, FL 32806', 'test@email.com', "4073244759", 4),
   ('Admin', 'Smith','889 South High Dr. Orlando, FL 32806', 'test@email.com', "4073244759", 5);
 
-INSERT INTO `pets` (`pet_name`,`pet_type`,`img_link`, `notes`, `checkedIn` `owners_id`)
+INSERT INTO `pets` (`pet_name`,`pet_type`,`img_link`, `notes`, `checkedIn`, `owners_id`)
 VALUES ('Fido', 'Poodle','https://www.google.com/','Fido chases cats', FALSE, 1),
   ('Snoopy', 'Beagle','https://www.google.com/','Snoopy is calm',FALSE, 2),
   ('Max', 'Labrador','https://www.google.com/','Max needs lots of love',FALSE, 3),
