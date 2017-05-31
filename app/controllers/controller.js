@@ -44,7 +44,7 @@ module.exports = function (app) {
                     res.redirect('/administrator');
                 }
                 else {
-                    res.render('dashboard');
+                    res.redirect('/dashboard');
                 }
             }
             else {
