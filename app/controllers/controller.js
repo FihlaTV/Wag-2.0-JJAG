@@ -180,11 +180,6 @@ module.exports = function (app) {
     });
 
 
-    // when adding events, redirect to select pets page
-    // app.post('/adminDashboard', function (req, res) {
-    //     res.redirect('selectactivity');
-    // });
-
     var thisActivity;
 
     app.get('/selectactivity', function (req, res) {
@@ -243,7 +238,7 @@ module.exports = function (app) {
     });
 
     app.get('/logout', function (req, res) {
-        res.render('signin');
+        res.redirect('/');
     });
 
 };
