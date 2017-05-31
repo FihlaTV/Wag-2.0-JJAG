@@ -47,44 +47,37 @@ module.exports = function (app) {
                 else {
                     res.redirect('/dashboard');
 
-                loggedIn.userID = userinfo.users_id;
+                    loggedIn.userID = userinfo.users_id;
 
-                var thisIDCheck = userinfo.users_id ;
-                if(userinfo.isAdmin) {
-                    res.redirect('/administrator');
-                }
-                else {
+                    var thisIDCheck = userinfo.users_id;
+                    if (userinfo.isAdmin) {
+                        res.redirect('/administrator');
+                    }
+                    else {
 
-                    console.log("The current ID is " + thisIDCheck + " and when we add three it is " + (thisIDCheck + 3));
+                        console.log("The current ID is " + thisIDCheck + " and when we add three it is " + (thisIDCheck + 3));
 
-                    db.owner.findOne({
-                        where: {
-                            owners_id: thisIDCheck
-                        }
-                    }).then(function(ownerResult) {
-                        if (ownerResult) {
+                        db.owner.findOne({
+                            where: {
+                                owners_id: thisIDCheck
+                            }
+                        }).then(function (ownerResult) {
+                            if (ownerResult) {
 
-                            console.log("This Owner Exists!!!");
+                                console.log("This Owner Exists!!!");
 
-                            var thisOwner = {};
-                            thisOwner.first_name = ownerResult.first_name ; 
-                            thisOwner.last_name = ownerResult.last_name ; 
-                            thisOwner.address = ownerResult.address;
-                            thisOwner.email = ownerResult.email;
-                            thisOwner.phone = ownerResult.phone;
-                            thisOwner.id = ownerResult.owners_id;
+                                var thisOwner = {};
+                                thisOwner.first_name = ownerResult.first_name;
+                                thisOwner.last_name = ownerResult.last_name;
+                                thisOwner.address = ownerResult.address;
+                                thisOwner.email = ownerResult.email;
+                                thisOwner.phone = ownerResult.phone;
+                                thisOwner.id = ownerResult.owners_id;
 
-                               res.render('dashboard', thisOwner);
-
-                        }
-                    
-                         
-
-                            
-                         
-                    });
-
-
+                                res.render('dashboard', thisOwner);
+                            }
+                        });
+                    }
                 }
             }
             else {
@@ -94,8 +87,6 @@ module.exports = function (app) {
                 res.render('signin', details2);
             }
         });
-
-
     });
 
     app.get('/signup', function (req, res) {
@@ -270,7 +261,6 @@ module.exports = function (app) {
         });
 
     });
-
 
 
     app.get('/logout', function (req, res) {
