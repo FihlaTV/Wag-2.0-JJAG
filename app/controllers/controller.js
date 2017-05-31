@@ -225,14 +225,22 @@ module.exports = function (app) {
     app.get('/events/:pets_id', function (req, res) {
         console.log('pet id selected', req.params.pets_id);
         thisPetId = req.params.pets_id;
-        db.event.findAll({
+        console.log('thisPetId', thisPetId);
+        db.pet.findAll({
             where: {
-                pets_id: req.params.pets_id
+                pets_id: thisPetId
             }
-        }).then(function (eventinfo) {
-            console.log(eventinfo);
-            var eventHbsObject = {eventHbsObject: eventinfo};
-            res.render('events', eventHbsObject);
+        }).then(function (result) {
+            db.event.findAll({
+                where: {
+                    pets_id: thisPetId
+                }
+            }).then(function (eventinfo) {
+                var hbs = {
+                    thisPet: result,
+                    eventHbsObject: eventinfo};
+                res.render('events', hbs);
+            });
         });
 
     });

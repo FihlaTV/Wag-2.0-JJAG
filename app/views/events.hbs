@@ -1,20 +1,13 @@
-
-    <!--<h1>Events</h1>-->
-
-    <!--<h3>Daily Activities for {{eventHbsObject.pet_name}}</h3>-->
-
-<!--</div>-->
-
-b
 <div id="container">
     <div id="main">
+{{#each thisPet}}
 
         <div class="row">
             <div class="header">
                 <div class="container">
                     <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
                     <div class="col-xs-8 text-center page-title">
-                        Scout
+                        {{this.pet_name}}
                     </div>
                     <div class="col-xs-2 text-right edit-ctrl">Edit</div>
                 </div>
@@ -23,9 +16,10 @@ b
 
         <div class="row">
             <div class="div hero-bg text-center">
-                <img src="/assets/img/dogs/dog9.jpg" alt="" class="img-circle hero-img">
+                <img src="{{this.img_link}}" alt="" class="img-circle hero-img">
             </div>
         </div>
+{{/each}}
 
         <div class="col-xs-6 text-center">
             <div class="function"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
