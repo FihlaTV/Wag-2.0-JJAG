@@ -13,29 +13,24 @@
             </div>
         </div>
 
+        {{#each foobar}}
+
         <div class="row">
             <div class="col-xs-12">
                 <div class="container">
                     <div class="container mypet-row">
-                        <img src="../public/assets/img/dogs/dog2.jpg" alt="" class="img-circle pet-icon">
-                        <p class="pet-name">Milo</p>
+                        <img src="{{this.img_link}}">
+                        <!--<p class="pet-name">{{this.pet_name}}</p>-->
+                        <a class="pet-name" href="/events/{{this.pets_id}}">
+                            {{this.pet_name}}
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-xs-12 ">
-                <div class="container">
-                    <div class="container mypet-row">
-                        <img src="../public/assets/img/dogs/dog9.jpg" alt="" class="img-circle pet-icon">
-                        <p class="pet-name">Scout</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        {{/each}}
+
 
 <a href="">
     <div class="footer text-center ">

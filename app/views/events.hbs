@@ -1,17 +1,142 @@
-<div class="container">
-    <h1>Events</h1>
 
-    <h3>Daily Activities for {{this.pet_name}}</h3>
+    <!--<h1>Events</h1>-->
 
-</div>
+    <!--<h3>Daily Activities for {{eventHbsObject.pet_name}}</h3>-->
 
-<ul>
+<!--</div>-->
+
+
+<div id="container">
+    <div id="main">
+
+        <div class="row">
+            <div class="header">
+                <div class="container">
+                    <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                    <div class="col-xs-8 text-center page-title">
+                        Scout
+                    </div>
+                    <div class="col-xs-2 text-right edit-ctrl">Edit</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="div hero-bg text-center">
+                <img src="/assets/img/dogs/dog9.jpg" alt="" class="img-circle hero-img">
+            </div>
+        </div>
+
+        <div class="col-xs-6 text-center">
+            <div class="function"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
+            <div>Message</div>
+        </div>
+        <div class="col-xs-6 text-center">
+            <div class="function"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
+            <p>Calendar</p>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="container dailyreport">
+                    Daily Report
+                </div>
+            </div>
+        </div>
+<!--==================================================-->
+
     {{#each eventHbsObject}}
-        <li>
-            {{this.pet_name}}
-            {{this.event_type}}
-            {{this.notes}}
-            <img src="{{this.img_link}}">
-        </li>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="container">
+                    <img src="/assets/img/icons/photo.svg" alt="" class="event-icon">
+                    <p class="event-title">{{this.event_type}}</p>
+                    <p class="event-subtitle">{{this.notes}}</p>
+                    <p class="event-time">8:35 AM</p>
+                    <img src="{{this.img_link}}" alt="" class="image-daily">
+                </div>
+            </div>
+        </div>
     {{/each}}
-</ul>
+
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/check.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Scout checked in</p>-->
+                    <!--<p class="event-subtitle">Checked in by Maria</p>-->
+                    <!--<p class="event-time">7:46 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/eat.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/excercise.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/incident.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/medication.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/note.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="container">-->
+                    <!--<img src="/assets/img/icons/potty.svg" alt="" class="event-icon">-->
+                    <!--<p class="event-title">Food: 1st feeding</p>-->
+                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
+                    <!--<p class="event-time">8:35 AM</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
