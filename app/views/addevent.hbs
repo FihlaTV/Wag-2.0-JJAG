@@ -1,7 +1,36 @@
-<div class="container">
-    <h1>Add Event</h1>
-    <h3>Yay</h3>
-</div>
+<div id="container">
+    <div id="main">
+        <div class="row">
+            <div class="header">
+                <div class="container">
+                    <div class="col-xs-2 cancel-ctrl">Cancel</div>
+                    <div class="col-xs-8 text-center page-title">
+                       <h2>Add Event</h2>
+                    </div>
+                    <!--<div class="col-xs-2 text-right bubble-ctrl icon-bubble"></div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row event-spacer-row"></div>
+
+
+        <style>
+            .header {
+            height: 65px;
+            background-color: #47C3C3;
+            color: white;
+        }
+
+                .event-spacer-row {
+                    margin-bottom: 100px;
+            }
+
+
+
+        </style>
+
+
 
 <form id="addevent" name="addevent" method="post" action="/addevent">
     <!--<label for="event_type">Event Type</label>-->

@@ -9,6 +9,12 @@
     margin-right: 300px;
 }
 
+.header {
+    height: 65px;
+    background-color: #47C3C3;
+    color: white;
+}
+
 .section-title{
     margin-bottom: 50px;
     margin-top: 0;
@@ -52,71 +58,7 @@ h6 {
     font-weight: bolder;
 }
 
-#joinButton {
-    display:block;
-    margin:auto;
-    width: 100px;
-    margin-top: 10px;
-}
 
-#themeButton {
-
-    display:block;
-    margin:auto;
-    width: 100px;
-    margin-top: 10px;
-
-}
-
-/*.scoreHolder {
-
-    font-weight: bolder;
-}
-
-.hiddenOne {
-
-    display: none;
-}
-
-
-#loadingPic {
-
-    display:block;
-    margin:auto;
-    width: 200px;
-    height: auto;
-    margin-top: 0px;
-}
-
-.ee {
-
-    display:block;
-    margin:auto;
-    width: 100px;
-    margin-top: 10px;
-
-}
-
-.floatLeft {
-
-    float: left;
-}
-
-.floatRight {
-
-    float: right;
-}
-
-.winnerClass {
-
-    color: green;
-
-}
-
-.loserClass {
-
-    color: red;
-}*/
 
 .glow {
 
@@ -597,9 +539,10 @@ h6 {
     transform:translateY(0px);
 }
 
-/*----------------------
+/*
+!*----------------------
 ---- Footer Styles  ----
-------------------------*/
+------------------------*!
 #main-footer{
     padding:40px 0;
     background: #fff;
@@ -647,4 +590,4 @@ h6 {
 
 #main-footer .logo-link{
     padding: 0;
-}
+}*/
