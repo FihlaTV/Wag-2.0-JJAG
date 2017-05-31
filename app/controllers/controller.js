@@ -9,7 +9,8 @@ module.exports = function(app) {
     var thisUserId,
         thisOwnerId,
         thisPetId,
-        thisEventId;
+        thisEventId,
+        addPetHbsObject;
 
     // Create routes
     app.get('/', function(req, res) {
@@ -46,6 +47,7 @@ module.exports = function(app) {
                     res.redirect('/administrator');
                 }
                 else {
+
                     console.log("The current ID is " + thisIDCheck + " and when we add three it is " + (thisIDCheck + 3));
 
                     db.owner.findOne({
@@ -75,7 +77,7 @@ module.exports = function(app) {
                          
                     });
 
-                   
+
                 }
             }
             else {
@@ -122,10 +124,7 @@ module.exports = function(app) {
                         myEmail = newUser.email;
                         myID = results.users_id;
 
-
-
                         res.render('ownerquestions', newUser);
-
                     });
 
             }
@@ -177,14 +176,21 @@ module.exports = function(app) {
         }).then(function(results) {
             //THEN redirect to /dashboard
             console.log(results);
-            var addPetHbsObject = {addPetHbsObject: results};
-            // should this res.redirect instead?
-            res.render('dashboard', addPetHbsObject);
+            res.redirect('/dashboard');
         });
     });
 
     app.get('/dashboard', function(req, res) {
-        res.render('dashboard');
+        console.log('/dashboard thisOwnerId', thisOwnerId);
+        db.pet.findAll({
+            where: {
+            owners_id: thisOwnerId}
+    }).then(function(data) {
+            console.log('dashboard pet.findAll data', data);
+            var ownerHbsObject = {foobar: data};
+            console.log('ownerHbsObject', ownerHbsObject);
+            res.render('mypets', ownerHbsObject);
+        });
     });
 
     // display all pets on administrator landing page
