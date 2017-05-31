@@ -36,6 +36,7 @@ CREATE TABLE `pets`
   `pet_type` VARCHAR(255) NOT NULL,
   `img_link` VARCHAR(500) NOT NULL,
   `notes` VARCHAR(1000) NOT NULL,
+  `checkedIn` TINYINT DEFAULT false,
   `owners_id` INTEGER NOT NULL,
   `createdAt` TIMESTAMP,
   `updatedAt` TIMESTAMP,
