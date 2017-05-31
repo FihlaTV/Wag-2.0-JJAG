@@ -14,6 +14,13 @@ figcaption {
     font-size: 1.5rem;
 }
 
+input {
+    outline: none;
+    padding: 12px;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
 .form-label {
     margin-top: 1rem;
 }
@@ -32,6 +39,7 @@ figcaption {
 .activity-spacer-row {
     height: 25vw;
 }
+
 .activity-icon {
     height: 75px;
     margin-top: 3rem;
@@ -173,6 +181,73 @@ figcaption {
     position: relative;
     bottom: -32px;
 }
+
+.signinbg {
+    background: lightgrey url("../img/bg/signin-blur-img.jpg") no-repeat -335px 0;
+    background-size: cover;
+}
+
+.signup-button, .signin-button2{
+    height: 6rem;
+    margin: 1.5rem 0;
+    border: none;
+    color: white;
+    border-radius: 1.5rem;
+    background-color: #1fac6a;
+    font-size: 1.75rem;
+}
+
+.signin-button2 {
+  margin-top: 6rem;
+}
+
+.signin-input, .signin-button {
+    height: 6rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    color: white;
+    border-radius: 1.5rem;
+    border: 1px rgba(255,255,255,0.5) solid;
+    background-color: rgba(255,255,255,0.3);
+    font-size: 1.75rem;
+}
+
+.signin-input {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+.signin-spacer {
+    height: 40vh;
+}
+
+.tagline {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 2rem;
+}
+
+.wagrbg {
+    background: lightgrey url("../img/bg/signin-img.jpg") no-repeat -335px 0;
+    background-size: cover;
+}
+
+.wagr-spacer {
+    height: 59vh;
+}
+
+.welcome {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+
+.form-control::-webkit-input-placeholder { color: rgba(255,255,255,0.6); }
+.form-control:-moz-placeholder { color: rgba(255,255,255,0.6); }
+.form-control::-moz-placeholder { color: rgba(255,255,255,0.6); }
+.form-control:-ms-input-placeholder { color: rgba(255,255,255,0.6); }
+
 
 
 
