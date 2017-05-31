@@ -1,15 +1,59 @@
-<div class="container">
-    <h1>Administrator Dashboard : Logged in as {{this.email}}</h1>
+<div id="container">
+    <div id="main">
 
-    <ul>
-        {{#each foobar}}
-                <li>
-                    {{this.pet_name}}
-                </li>
-        {{/each}}
-    </ul>
+        <div class="row">
+            <div class="col-xs-4 text-left">
+                <img src="assets/img/icons/iOSsignal.svg" alt="" class="ios-signal">
+            </div>
+            <div class="col-xs-4 text-center">
+                <img src="assets/img/icons/iOStime.svg" alt="">
+            </div>
+            <div class="col-xs-4 text-right">
+                <img src="assets/img/icons/iOSbattery.svg" alt="" class="ios-battery">
+            </div>
+            <div class="header">
+                <div class="container page-title-bar">
+                    <div class="col-xs-2 menu-ctrl icon-menu"></div>
+                    <div class="col-xs-8 text-center page-title">
+                        Dashboard
+                    </div>
+                    <div class="col-xs-2 text-right plus-ctrl">Manage</div>
+                </div>
+            </div>
+        </div>
 
-    <form id="administrator" name="administrator" method="post" action="administrator">
-        <input class="btn" type="submit" value="Add Event"/>
-    </form>
+        <div class="container ipad-sidebump">
+
+            {{#each foobar}}
+                <div class="row">
+                    <div class="col-xs-12 mypet-row">
+                        <img src="{{this.img_link}}" alt="" data-id="{{this._id}}" class="img-circle pet-icon absent">
+                        <p class="pet-name">{{this.pet_name}}</p>
+                    </div>
+                </div>
+            {{/each}}
+
+        </div>
+    </div>
 </div>
+
+<a href="">
+    <div class="footer">
+        <div class="row">
+            <div class="col-xs-4 text-center">
+                <div class="adminfunction"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
+                <div>Messages</div>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="/selectactivity">
+                    <div class="adminfunction"><i class="fa fa-paw" aria-hidden="true"></i></div>
+                    <div>Add Activity</div>
+                </a>
+            </div>
+            <div class="col-xs-4 text-center">
+                <div class="adminfunction"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
+                <div>Check-In</div>
+            </div>
+        </div>
+    </div>
+</a>
