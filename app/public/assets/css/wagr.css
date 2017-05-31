@@ -36,6 +36,10 @@ input {
     top: 0;
 }
 
+.absent {
+    opacity: 0.5;
+}
+
 .activity-spacer-row {
     height: 25vw;
 }
@@ -43,6 +47,12 @@ input {
 .activity-icon {
     height: 75px;
     margin-top: 3rem;
+}
+
+.adminfunction {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: -0.4rem;
 }
 
 .back-ctrl {
@@ -96,10 +106,6 @@ input {
     margin-top: 2rem;
     font-size: 1.6rem;
     font-weight: 500;
-}
-
-.fiftycent {
-    opacity: 0.5;
 }
 
 .footer {
