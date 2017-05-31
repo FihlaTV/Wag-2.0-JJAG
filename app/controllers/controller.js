@@ -40,11 +40,51 @@ module.exports = function (app) {
                 console.log(userinfo.email);
                 loggedIn.email = userinfo.email;
                 loggedIn.password = userinfo.password;
+
                 if (userinfo.isAdmin) {
                     res.redirect('/administrator');
                 }
                 else {
                     res.redirect('/dashboard');
+
+                loggedIn.userID = userinfo.users_id;
+
+                var thisIDCheck = userinfo.users_id ;
+                if(userinfo.isAdmin) {
+                    res.redirect('/administrator');
+                }
+                else {
+
+                    console.log("The current ID is " + thisIDCheck + " and when we add three it is " + (thisIDCheck + 3));
+
+                    db.owner.findOne({
+                        where: {
+                            owners_id: thisIDCheck
+                        }
+                    }).then(function(ownerResult) {
+                        if (ownerResult) {
+
+                            console.log("This Owner Exists!!!");
+
+                            var thisOwner = {};
+                            thisOwner.first_name = ownerResult.first_name ; 
+                            thisOwner.last_name = ownerResult.last_name ; 
+                            thisOwner.address = ownerResult.address;
+                            thisOwner.email = ownerResult.email;
+                            thisOwner.phone = ownerResult.phone;
+                            thisOwner.id = ownerResult.owners_id;
+
+                               res.render('dashboard', thisOwner);
+
+                        }
+                    
+                         
+
+                            
+                         
+                    });
+
+
                 }
             }
             else {
