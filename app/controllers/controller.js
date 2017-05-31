@@ -181,9 +181,9 @@ module.exports = function (app) {
 
 
     // when adding events, redirect to select pets page
-    app.post('/adminDashboard', function (req, res) {
-        res.redirect('selectactivity');
-    });
+    // app.post('/adminDashboard', function (req, res) {
+    //     res.redirect('selectactivity');
+    // });
 
     var thisActivity;
 
