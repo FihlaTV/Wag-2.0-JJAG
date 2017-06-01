@@ -233,6 +233,34 @@ module.exports = function (app) {
                     pets_id: thisPetId
                 }
             }).then(function (eventinfo) {
+                //TODO write for loop to set a new property on event with the image .event-icon (*.svg) name
+                for (var i = 0; i < eventinfo.length; i++) {
+                    switch (eventinfo[i].event_type) {
+                        case 'Potty':
+                            eventinfo[i].image_name = 'potty';
+                            break;
+                        case 'Incident':
+                            eventinfo[i].image_name = 'incident';
+                            break;
+                        case 'Photo':
+                            eventinfo[i].image_name = 'photo';
+                            break;
+                        case 'Eat':
+                            eventinfo[i].image_name = 'eat';
+                            break;
+                        case 'Exercise':
+                            eventinfo[i].image_name = 'excercise';
+                            break;
+                        case 'Medication':
+                            eventinfo[i].image_name = 'medication';
+                            break;
+                        case 'Note':
+                            eventinfo[i].image_name = 'note';
+                            break;
+                        default:
+                            eventinfo[i].image_name = 'check'
+                    }
+                }
                 var hbs = {
                     thisPet: result,
                     eventHbsObject: eventinfo};
