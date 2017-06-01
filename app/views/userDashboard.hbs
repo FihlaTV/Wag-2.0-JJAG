@@ -1,5 +1,4 @@
 <div id="container">
-
     <div id="main">
         <div class="row">
             {{> iOSstatusbar }}
@@ -13,27 +12,22 @@
                 </div>
             </div>
         </div>
-
         {{#each foobar}}
-
             <div class="row">
                 <div class="col-xs-12">
                     <div class="container">
                         <div class="container mypet-row">
-                            <img src="{{this.img_link}}">
-                            <!--<p class="pet-name">{{this.pet_name}}</p>-->
                             <a class="pet-name" href="/events/{{this.pets_id}}">
-                                {{this.pet_name}}
+                                <img src="{{this.img_link}}" alt="" class="img-circle pet-icon">
+                                <p class="pet-name">{{this.pet_name}}</p>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
         {{/each}}
     </div>
 </div>
-
 <a href="">
     <div class="footer text-center ">
         <p class="footer-text">Check in/out</p>
