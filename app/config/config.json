@@ -16,10 +16,10 @@
     },
  
     "production": {
-        "username": "root",
-        "password": "root",
-        "database": "wagr_db",
-        "host": "127.0.0.1",
+        "username": "f01ewh1tkb1rukzv",
+        "password": "b82by4t02f2oot2m",
+        "database": "xnhgbdimp13lng1w",
+        "host": "mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql"
     }
 }
