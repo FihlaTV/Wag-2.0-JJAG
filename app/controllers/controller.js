@@ -200,7 +200,6 @@ module.exports = function (app) {
     app.get('/addevent/:pets_id', function (req, res) {
         console.log('pet id selected', req.params.pets_id);
         thisPetId = req.params.pets_id;
-
         res.render('addevent');
     });
 
@@ -215,9 +214,7 @@ module.exports = function (app) {
             notes: req.body.notes,
             img_link: req.body.img_link
         }).then(function (results) {
-
             console.log(results);
-
             res.redirect('adminDashboard');
         });
     });
