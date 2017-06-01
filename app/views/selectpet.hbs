@@ -1,18 +1,54 @@
-<div class="container">
-    <h1>Select Pet</h1>
-    <h3>Yay</h3>
+<div id="container">
+    <div id="main">
+        <div class="row">
+
+            {{> iOSstatusbar }}
+
+            <div class="header">
+                <div class="container page-title-bar">
+                    <div class="col-xs-2 menu-ctrl icon-arrow-left"></div>
+                    <div class="col-xs-8 text-center page-title">
+                        Select Pet
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                {{#each selPet}}
+
+                    {{#if this.checkedIn}}
+                        <div class="col-xs-2 text-center">
+                            <a href="/addevent/{{this.pets_id}}">
+                                <figure>
+                                    <img src="{{this.img_link}}" alt="" data-id="{{this.pets_id}}"
+                                         class="img-circle pet-icon">
+                                    <figcaption>{{this.pet_name}}</figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    {{/if}}
+
+                    {{#unless this.checkedIn}}
+                        <div class="col-xs-2 text-center">
+                            <a href="/addevent/{{this.pets_id}}">
+                                <figure>
+                                    <img src="{{this.img_link}}" alt="" data-id="{{this.pets_id}}"
+                                         class="img-circle pet-icon absent">
+                                    <figcaption>{{this.pet_name}}</figcaption>
+                                </figure>
+                            </a>
+                        </div>
+                    {{/unless}}
+
+                {{/each}}
+
+            </div>
+        </div>
+
+    </div>
 </div>
-
-<ul>
-    {{#each selPet}}
-        <li>
-
-            <a href="/addevent/{{this.pets_id}}">
-                {{this.pet_name}}
-            </a>
-
-        </li>
-    {{/each}}
-</ul>
 
 
