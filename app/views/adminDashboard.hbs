@@ -1,4 +1,3 @@
-
 <div id="container">
     <div id="main">
 
@@ -26,12 +25,24 @@
         <div class="container ipad-sidebump">
 
             {{#each foobar}}
-                <div class="row">
-                    <div class="col-xs-12 mypet-row">
-                        <img src="{{this.img_link}}" alt="" data-id="{{this._id}}" class="img-circle pet-icon absent">
-                        <p class="pet-name">{{this.pet_name}}</p>
+                {{#if this.checkedIn}}
+                    <div class="row">
+                        <div class="col-xs-12 mypet-row">
+                            <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
+                                 class="img-circle pet-icon">
+                            <p class="pet-name">{{this.pet_name}}</p>
+                        </div>
                     </div>
-                </div>
+                {{/if}}
+                {{#unless this.checkedIn}}
+                    <div class="row">
+                        <div class="col-xs-12 mypet-row">
+                            <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
+                                 class="img-circle pet-icon absent">
+                            <p class="pet-name">{{this.pet_name}}</p>
+                        </div>
+                    </div>
+                {{/unless}}
             {{/each}}
 
         </div>
