@@ -25,7 +25,8 @@ module.exports = function(sequelize, Datatypes) {
             }
         },
         img_link: {
-            type: Datatypes.STRING
+            type: Datatypes.STRING,
+            defaultValue: 'https://www.dropbox.com/s/ki0laigmbgq5qp0/paw.svg?raw=1'
         },
         notes: {
             type: Datatypes.STRING

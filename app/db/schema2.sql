@@ -34,7 +34,7 @@ CREATE TABLE `pets`
   `pets_id` INT NOT NULL AUTO_INCREMENT,
   `pet_name` VARCHAR(255) NOT NULL,
   `pet_type` VARCHAR(255) NOT NULL,
-  `img_link` VARCHAR(500) NOT NULL,
+  `img_link` VARCHAR(500) NOT NULL DEFAULT 'https://www.dropbox.com/s/ki0laigmbgq5qp0/paw.svg?raw=1',
   `notes` VARCHAR(1000) NOT NULL,
   `checkedIn` TINYINT DEFAULT false,
   `owners_id` INTEGER NOT NULL,
