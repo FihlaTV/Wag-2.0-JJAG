@@ -90,21 +90,17 @@ module.exports = function (app) {
                 res.render("signup", details);
             }
             else {
+                // create user in db
                 db.user.create({
                     email: req.body.email,
                     password: req.body.password,
-                    // right now isAdmin would be manually updated in db, outside of application
+                    // current app, isAdmin property would be manually updated in db, outside of app
                     isAdmin: false
                 }).then(function (results) {
-
-                    var newUser = {};
-                    console.log(results.email);
-                    newUser.email = results.email;
-                    newUser.password = results.password;
-
-                    thisUserEmail = newUser.email;
+                    console.log('new user email', results.email);
+                    thisUserEmail = results.email;
                     thisUserId = results.users_id;
-
+                    // redirect to ownerquestions endpoint
                     res.redirect('/ownerquestions');
                 });
             }
@@ -118,13 +114,22 @@ module.exports = function (app) {
     // add owner info to owner table
     app.post('/ownerquestions', function (req, res) {
         console.log('req.body', req.body);
+        // concatenate address fields together
+        var fullAddress = req.body.address + ', ' +
+                req.body.city + ', ' +
+                req.body.state + ' ' +
+                req.body.zip;
+        console.log('fullAddress', fullAddress);
         // gather data from form fields and hit Owner model
         db.owner.create({
+            // populates users_id foreign key from global var assigned in sign up post route
             users_id: thisUserId,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
+            // populate email from global var assigned in sign up post route
+            // so user doesn't have to type email twice
             email: thisUserEmail,
-            address: req.body.address,
+            address: fullAddress,
             phone: req.body.phone
 
         }).then(function (results) {
