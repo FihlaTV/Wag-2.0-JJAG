@@ -3,18 +3,18 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    // Global variables allow passing values to subsequent pages
+    // global variables allow passing values to subsequent pages
     var thisUserId,
         thisUserEmail,
         thisOwnerId,
         thisPetId;
 
-    // Landing page
+    // landing page
     app.get('/', function (req, res) {
         res.render('wagr');
     });
 
-    // Sign in page
+    // sign in page
     app.get('/signin', function (req, res) {
         res.render('signin');
     });
@@ -32,17 +32,16 @@ module.exports = function (app) {
             if (userinfo) {
                 console.log("Success!");
                 console.log(checkEmail + ", " + checkPassword);
-                var loggedIn = {};
                 console.log(userinfo.email);
-                loggedIn.email = userinfo.email;
-                loggedIn.password = userinfo.password;
-                // checks to see if user is an administrator and redirects to /adminDashboard if true
+                // if user is an administrator, redirect to /adminDashboard
                 if (userinfo.isAdmin) {
                     res.redirect('/adminDashboard');
                 }
+                // if not admin, redirect to /userDashboard
                 else {
-                    loggedIn.userID = userinfo.users_id;
+                    // this var holds current users_id
                     var thisIDCheck = userinfo.users_id;
+                        // db call finds which owner is associated with current user
                         db.owner.findOne({
                             where: {
                                 owners_id: thisIDCheck
@@ -51,6 +50,8 @@ module.exports = function (app) {
                             console.log('owner name from db call', ownerResult.first_name);
                             if (ownerResult) {
                                 console.log("This Owner Exists!!!");
+                                // reassign global var thisOwnerId to current owner
+                                // necessary so if existing user logs in and adds new pet, new pet will be associated with most recently logged in owners_id
                                 thisOwnerId = ownerResult.owners_id;
                                 res.redirect('/dashboard');
                             }
@@ -58,15 +59,16 @@ module.exports = function (app) {
                     }
                 }
             else {
+                // if no user found in db, render signin page and send error to dom
                 console.log("User not found");
                 var details2 = {};
                 details2.myerror = "That email doesn't exist!";
                 res.render('signin', details2);
             }
-
         });
     });
 
+    // sign up route
     app.get('/signup', function (req, res) {
         res.render('signup');
     });
@@ -74,11 +76,13 @@ module.exports = function (app) {
     // add new user to users table
     app.post('/signup', function (req, res) {
         console.log("New User: ", req.body);
+        // checker to make sure new email hasn't been used before
         db.user.findOne({
             where: {
                 email: req.body.email
             }
         }).then(function (userinfo) {
+            // if email exists, render signup and send error to dom
             if (userinfo) {
                 console.log("That email already exists!");
                 var details = {};
@@ -89,6 +93,7 @@ module.exports = function (app) {
                 db.user.create({
                     email: req.body.email,
                     password: req.body.password,
+                    // right now isAdmin would be manually updated in db, outside of application
                     isAdmin: false
                 }).then(function (results) {
 
