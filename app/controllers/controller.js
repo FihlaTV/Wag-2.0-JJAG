@@ -100,14 +100,14 @@ module.exports = function (app) {
                     myEmail = newUser.email;
                     myID = results.users_id;
 
-                    res.render('ownerquestions', newUser);
+                    res.redirect('/ownerquestions');
                 });
             }
         });
     });
 
     app.get('/ownerquestions', function (req, res) {
-        res.render('ownerquestions');
+        res.render('ownerform');
     });
 
     // add owner info to owner table
