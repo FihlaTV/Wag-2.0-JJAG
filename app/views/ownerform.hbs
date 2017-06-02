@@ -1,0 +1,66 @@
+<div id="container">
+    <div id="main">
+
+        <div class="row">
+            {{> iOSstatusbar }}
+            <div class="header">
+                <div class="container page-title-bar">
+                    <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                    <div class="col-xs-8 text-center page-title">
+                        New User Form
+                    </div>
+                </div>
+            </div>
+
+            <form id="newUserForm" name="newUserForm" method="post" action="/ownerquestions">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                                <div class="form-group">
+                                    <label for="inputFirstName">First Name</label>
+                                    <input name="first_name" id="inputFirstName" type="text" class="form-control"
+                                           placeholder="John">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputLastName">Last Name</label>
+                                    <input name="last_name" id="inputLastName" type="text" class="form-control"
+                                           placeholder="Doe">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputAddress">Address</label>
+                                    <input name="address" id="inputAddress" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputCity">City</label>
+                                    <input name="city" id="inputCity" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputState">State</label>
+                                    <input name="state" id="inputState" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputZip">Zip Code</label>
+                                    <input name="zip" id="inputZip" type="number" class="form-control">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer text-center">
+    <p class="footer-text" id="newUserFormSubmit">SUBMIT</p>
+</div>
+
