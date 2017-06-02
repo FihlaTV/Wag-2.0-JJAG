@@ -236,7 +236,6 @@ module.exports = function (app) {
                     ['createdAt', 'DESC']
                 ]
             }).then(function (eventinfo) {
-                //TODO write for loop to set a new property on event with the image .event-icon (*.svg) name
                 for (var i = 0; i < eventinfo.length; i++) {
                     switch (eventinfo[i].event_type) {
                         case 'Potty':
