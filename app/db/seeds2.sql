@@ -19,15 +19,15 @@ VALUES ('Fido', 'Poodle','https://www.dropbox.com/s/4xkmx052t7veiim/dog1.jpg?raw
   ('Bear', 'Labrador','https://www.dropbox.com/s/a4zatzyddn7dhgj/dog3.jpg?raw=1','Bear is fierce',FALSE, 3),
   ('Max', 'Puggle','https://www.dropbox.com/s/mynczq3twdd396g/dog4.jpg?raw=1','Max needs lots of love',TRUE, 4),
   ('Cooper', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Cooper likes toys',FALSE, 1),
-  ('Millie', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Millie is a diva',FALSE, 2),
-  ('Oliver', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Oliver likes to eat cat food',TRUE, 4),
-  ('Leo', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Leo likes to chase cars',TRUE, 4),
-  ('Scout', 'Labrador','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Scout fancies himself a detective',TRUE, 4),
-  ('Jackson', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Jackson is a southern gentleman',TRUE, 1),
-  ('Murphy', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Murphy likes to sleep',FALSE, 2),
-  ('Tucker', 'Husky','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Tucker is a little shit',FALSE, 5),
-  ('Honey', 'Golden Retriever','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Honey is the actual best dog in the world.',TRUE, 4),
-  ('Winston', 'Pug','https://www.dropbox.com/s/v81xs9h3kt0xa4l/dog5.jpg?raw=1','Winston needs to calm down',FALSE, 3);
+  ('Millie', 'Long-Haired Doxie','https://www.dropbox.com/s/0q7ilm2575187qf/dog6.jpg?raw=1','Millie is a diva',FALSE, 2),
+  ('Oliver', 'Pug','https://www.dropbox.com/s/ujvzeaz87gxpo27/dog7.jpg?raw=1','Oliver likes to eat cat food',TRUE, 4),
+  ('Leo', 'Lab','https://www.dropbox.com/s/flkrkjqf04h14zj/dog8.jpg?raw=1','Leo likes to chase cars',TRUE, 4),
+  ('Scout', 'Bloodhound','https://www.dropbox.com/s/loerwlcvprl1szl/dog9.jpg?raw=1','Scout fancies himself a detective',TRUE, 4),
+  ('Jackson', 'Dachshund','https://www.dropbox.com/s/1exx76iys83ypiu/dog10.jpg?raw=1','Jackson is a southern gentleman',TRUE, 1),
+  ('Murphy', 'Greyhound','https://www.dropbox.com/s/xpast2od7kw0bio/dog11.jpg?raw=1','Murphy likes to sleep',FALSE, 2),
+  ('Tucker', 'Husky','https://www.dropbox.com/s/09ria12wafmqfw1/dog12.jpg?raw=1','Tucker is a little shit',FALSE, 5),
+  ('Honey', 'Golden Retriever','https://www.dropbox.com/s/vhft98vu9dyf31k/dog13.jpg?raw=1','Honey is the actual best dog in the world.',TRUE, 4),
+  ('Winston', 'Weimaraner','https://www.dropbox.com/s/56v6ipa07vkn29z/dog14.jpg?raw=1','Winston needs to calm down',FALSE, 3);
 
 
 INSERT INTO `events` (`event_type`,`notes`,`img_link`, `pets_id`)
