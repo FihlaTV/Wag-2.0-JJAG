@@ -51,8 +51,8 @@ CREATE TABLE `events`
 (
   `events_id` INT NOT NULL AUTO_INCREMENT,
   `event_type` VARCHAR(255) NOT NULL,
-  `notes` VARCHAR(1000) NOT NULL,
-  `img_link` VARCHAR(255) NOT NULL,
+  `notes` VARCHAR(1000),
+  `img_link` VARCHAR(255),
   `pets_id` INTEGER NOT NULL,
   `createdAt` TIMESTAMP,
   `updatedAt` TIMESTAMP,
