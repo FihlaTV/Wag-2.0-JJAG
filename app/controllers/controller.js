@@ -1,35 +1,34 @@
 var db = require("../models");
 
-var myEmail;
-var myID;
-
 
 module.exports = function (app) {
 
+    // Global variables allow passing values to subsequent pages
     var thisUserId,
+        thisUserEmail,
         thisOwnerId,
-        thisPetId,
-        thisEventId,
-        addPetHbsObject;
+        thisPetId;
 
-    // Create routes
+    // Landing page
     app.get('/', function (req, res) {
         res.render('wagr');
     });
 
+    // Sign in page
     app.get('/signin', function (req, res) {
         res.render('signin');
     });
 
     app.post('/signin', function (req, res) {
-        checkEmail = req.body.email;
-        checkPassword = req.body.password;
+        var checkEmail = req.body.email;
+        var checkPassword = req.body.password;
         console.log(checkEmail + ", " + checkPassword);
         db.user.findOne({
             where: {
                 email: checkEmail
             }
         }).then(function (userinfo) {
+            // if user is found
             if (userinfo) {
                 console.log("Success!");
                 console.log(checkEmail + ", " + checkPassword);
@@ -37,6 +36,7 @@ module.exports = function (app) {
                 console.log(userinfo.email);
                 loggedIn.email = userinfo.email;
                 loggedIn.password = userinfo.password;
+                // checks to see if user is an administrator and redirects to /adminDashboard if true
                 if (userinfo.isAdmin) {
                     res.redirect('/adminDashboard');
                 }
@@ -97,8 +97,8 @@ module.exports = function (app) {
                     newUser.email = results.email;
                     newUser.password = results.password;
 
-                    myEmail = newUser.email;
-                    myID = results.users_id;
+                    thisUserEmail = newUser.email;
+                    thisUserId = results.users_id;
 
                     res.redirect('/ownerquestions');
                 });
@@ -115,10 +115,10 @@ module.exports = function (app) {
         console.log('req.body', req.body);
         // gather data from form fields and hit Owner model
         db.owner.create({
-            users_id: myID,
+            users_id: thisUserId,
             first_name: req.body.first_name,
             last_name: req.body.last_name,
-            email: myEmail,
+            email: thisUserEmail,
             address: req.body.address,
             phone: req.body.phone
 
