@@ -162,7 +162,33 @@ module.exports = function (app) {
         });
     });
 
+<<<<<<< Updated upstream
     // user dashboard - calls db to display all owner's pets
+=======
+    app.post('/upload', function (req, res) {
+        var tempPath = req.files.file.path,
+            targetPath = path.resolve('assets/uploads/');
+        if (path.extname(req.files.file.name).toLowerCase() === '.png' || '.jpeg') {
+            fs.rename(tempPath, targetPath, function(err) {
+                if (err) throw err;
+                console.log("Upload completed!");
+            });
+        } else {
+            fs.unlink(tempPath, function () {
+                if (err) throw err;
+                console.error("Only .png or .jpeg files are allowed!");
+            });
+        }
+        res.redirect('/dashboard');
+    });
+
+
+
+    app.get('uploads', function (req, res) {
+        res.sendfile(path.resolve('./uploads/image.png'));
+    });
+
+>>>>>>> Stashed changes
     app.get('/dashboard', function (req, res) {
         // check last owners_id from either signup or signin route
         console.log('/dashboard thisOwnerId', thisOwnerId);

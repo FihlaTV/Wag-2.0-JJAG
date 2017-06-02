@@ -1,5 +1,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
+     path = require('path'),
+    fs = require('fs'),
     logger = require('morgan');
 
 
@@ -27,6 +29,7 @@ app.engine("hbs", exphbs({
     defaultLayout: "main",
     extname: '.hbs',
     layoutsDir:'app/views/layouts',
+    uploadDir:'uploaded',
     partialsDir:'app/views/partials'}));
 app.set("view engine", "hbs");
 
