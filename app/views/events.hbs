@@ -42,96 +42,21 @@
 
     {{#each eventHbsObject}}
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="container">
-                    <img src="/assets/img/icons/photo.svg" alt="" class="event-icon">
-                    <p class="event-title">{{this.event_type}}</p>
-                    <p class="event-subtitle">{{this.notes}}</p>
-                    <p class="event-time">{{this.createdAt}}</p>
-                    <img src="{{this.img_link}}" alt="" class="image-daily">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        <img src="/assets/img/icons/{{this.image_name}}.svg" alt="" class="event-icon">
+                        <p class="event-title">{{this.event_type}}</p>
+                        <p class="event-subtitle">{{this.notes}}</p>
+                        <p class="event-time">{{this.createdAt}}</p>
+                        <img src="{{this.img_link}}" alt="" class="image-daily">
+                    </div>
                 </div>
             </div>
-        </div>
+
+
     {{/each}}
 
 
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/check.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Scout checked in</p>-->
-                    <!--<p class="event-subtitle">Checked in by Maria</p>-->
-                    <!--<p class="event-time">7:46 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/eat.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/excercise.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/incident.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/medication.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/note.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12">-->
-                <!--<div class="container">-->
-                    <!--<img src="/assets/img/icons/potty.svg" alt="" class="event-icon">-->
-                    <!--<p class="event-title">Food: 1st feeding</p>-->
-                    <!--<p class="event-subtitle">Science Diet - Small Breed</p>-->
-                    <!--<p class="event-time">8:35 AM</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 </div>
