@@ -2,10 +2,10 @@
     <div id="main">
         <div class="row">
 
-            {{> iOSstatusbar }}
+            {{! {{> iOSstatusbar }}
 
             <div class="header">
-                <div class="container page-title-bar">
+                <div class="container page-title-bar nostatus">
                     <a href="/logout">
                         <div class="col-xs-2 menu-ctrl icon-menu"></div>
                     </a>
@@ -23,7 +23,7 @@
                 <div class="col-xs-12">
                     <div class="container">
                         <div class="container mypet-row">
-                            <a class="pet-name" href="/events/{{this.pets_id}}">
+                            <a href="/events/{{this.pets_id}}">
                                 <img src="{{this.img_link}}" alt="" class="img-circle pet-icon">
                                 <p class="pet-name">{{this.pet_name}}</p>
                             </a>

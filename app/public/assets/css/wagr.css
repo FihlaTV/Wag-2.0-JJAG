@@ -9,6 +9,12 @@ body {
     font-family: 'Asap', sans-serif;
 }
 
+a, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+
 figcaption {
     font-weight: 500;
     font-size: 1.5rem;
@@ -114,10 +120,23 @@ input {
     color: white;
 }
 
+.footer-subtext {
+    font-size: 1.4rem;
+    opacity: 0.6;
+    position: relative;
+    bottom: 4px;
+}
+
 .footer-text {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     position: relative;
     bottom: -18px;
+}
+
+.footer-userform {
+    font-size: 1.8rem;
+    position: relative;
+    bottom: -8px;
 }
 
 .function {
@@ -187,8 +206,12 @@ input {
     border-bottom: 2px #eee solid;
 }
 
+.nostatus {
+    padding-top: 20px;
+}
+
 .page-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     position: relative;
     bottom: -25px;
 }
@@ -209,6 +232,8 @@ input {
     position: relative;
     bottom: -33px;
     font-weight: 500;
+    color: black;
+    text-decoration: none;
 }
 
 .plus-ctrl, .bubble-ctrl {
@@ -217,8 +242,12 @@ input {
     bottom: -32px;
 }
 
+.relative {
+    position: relative;
+}
+
 .signinbg {
-    background: lightgrey url("../img/bg/signin-blur-img.jpg") no-repeat -335px 0;
+    background: lightgrey url("../img/bg/signin-blur-img.jpg") no-repeat -365px 0;
     background-size: cover;
 }
 
@@ -262,7 +291,7 @@ input {
 }
 
 .wagrbg {
-    background: lightgrey url("../img/bg/signin-img.jpg") no-repeat -335px 0;
+    background: lightgrey url("../img/bg/signin-img.jpg") no-repeat -365px 0;
     background-size: cover;
 }
 
