@@ -231,7 +231,10 @@ module.exports = function (app) {
             db.event.findAll({
                 where: {
                     pets_id: thisPetId
-                }
+                },
+                order: [
+                    ['createdAt', 'DESC']
+                ]
             }).then(function (eventinfo) {
                 //TODO write for loop to set a new property on event with the image .event-icon (*.svg) name
                 for (var i = 0; i < eventinfo.length; i++) {
