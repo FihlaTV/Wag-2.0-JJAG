@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var path = require('path');
 
 module.exports = function (app) {
 
@@ -42,23 +42,23 @@ module.exports = function (app) {
                 else {
                     // this var holds current users_id
                     var thisIDCheck = userinfo.users_id;
-                        // db call finds which owner is associated with current user
-                        db.owner.findOne({
-                            where: {
-                                owners_id: thisIDCheck
-                            }
-                        }).then(function (ownerResult) {
-                            console.log('owner name from db call', ownerResult.first_name);
-                            if (ownerResult) {
-                                console.log("This Owner Exists!!!");
-                                // reassign global var thisOwnerId to current owner
-                                // necessary so if existing user logs in and adds new pet, new pet will be associated with most recently logged in owners_id
-                                thisOwnerId = ownerResult.owners_id;
-                                res.redirect('/dashboard');
-                            }
-                        });
-                    }
+                    // db call finds which owner is associated with current user
+                    db.owner.findOne({
+                        where: {
+                            owners_id: thisIDCheck
+                        }
+                    }).then(function (ownerResult) {
+                        console.log('owner name from db call', ownerResult.first_name);
+                        if (ownerResult) {
+                            console.log("This Owner Exists!!!");
+                            // reassign global var thisOwnerId to current owner
+                            // necessary so if existing user logs in and adds new pet, new pet will be associated with most recently logged in owners_id
+                            thisOwnerId = ownerResult.owners_id;
+                            res.redirect('/dashboard');
+                        }
+                    });
                 }
+            }
             else {
                 // if no user found in db, render signin page and send error to dom
                 console.log("User not found");
@@ -117,9 +117,9 @@ module.exports = function (app) {
         console.log('req.body', req.body);
         // concatenate address fields together
         var fullAddress = req.body.address + ', ' +
-                req.body.city + ', ' +
-                req.body.state + ' ' +
-                req.body.zip;
+            req.body.city + ', ' +
+            req.body.state + ' ' +
+            req.body.zip;
         console.log('fullAddress', fullAddress);
         // gather data from form fields and hit Owner model
         db.owner.create({
@@ -147,188 +147,178 @@ module.exports = function (app) {
     // add pet info to pets table
     app.post('/addpet', function (req, res) {
         console.log('req.body', req.body);
-        // gather data from form fields and hit Pet model
-        db.pet.create({
-            // populates owners_id foreign key from global var assigned in ownerquestions post route
-            owners_id: thisOwnerId,
-            pet_name: req.body.pet_name,
-            pet_type: req.body.pet_type,
-            img_link: req.body.img_link,
-            notes: req.body.notes,
-            checkedIn: 0
-        }).then(function (results) {
-            console.log(results.pet_name + ' is pets_id ' + results.pets_id + ' and is added to db!');
-            res.redirect('/dashboard');
-        });
-    });
-
-<<<<<<< Updated upstream
-    // user dashboard - calls db to display all owner's pets
-=======
-    app.post('/upload', function (req, res) {
-        var tempPath = req.files.file.path,
-            targetPath = path.resolve('assets/uploads/');
-        if (path.extname(req.files.file.name).toLowerCase() === '.png' || '.jpeg') {
-            fs.rename(tempPath, targetPath, function(err) {
-                if (err) throw err;
-                console.log("Upload completed!");
+        // Attemot to upload image to  folder
+        // Testing/Debugging //
+        console.log("The files from the form are this => " + req.files.img_link);
+        if (!req.files)
+            // Testing/Debugging /
+            return res.status(400).send('No files were uploaded.');
+        // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+        var petUpload = req.files.img_link;
+        // Testing/Debugging //
+        console.log("This is petUpload =" + petUpload);
+        // Use the mv() method to place the file somewhere on your server
+        petUpload.mv(path.join(__dirname, '../public/uploads/' + petUpload.name), function (err) {
+            if (err)
+                return res.status(500).send(err);
+            // gather data from form fields and hit Pet model
+            db.pet.create({
+                // populates owners_id foreign key from global var assigned in ownerquestions post route
+                owners_id: thisOwnerId,
+                pet_name: req.body.pet_name,
+                pet_type: req.body.pet_type,
+                img_link: petUpload.name,
+                notes: req.body.notes,
+                checkedIn: 0
+            }).then(function (results) {
+                console.log(results.pet_name + ' is pets_id ' + results.pets_id + ' and is added to db!');
+                res.redirect('/dashboard');
             });
-        } else {
-            fs.unlink(tempPath, function () {
-                if (err) throw err;
-                console.error("Only .png or .jpeg files are allowed!");
+        });
+    });
+
+
+        app.get('/dashboard', function (req, res) {
+            // check last owners_id from either signup or signin route
+            console.log('/dashboard thisOwnerId', thisOwnerId);
+            // db call to find all pets belonging to this owner
+            db.pet.findAll({
+                where: {
+                    owners_id: thisOwnerId
+                }
+            }).then(function (data) {
+                console.log('this owner has ' + data.length + ' pets');
+                // object to send to handlebars
+                var ownerHbsObject = {foobar: data};
+                res.render('userDashboard', ownerHbsObject);
             });
-        }
-        res.redirect('/dashboard');
-    });
-
-
-
-    app.get('uploads', function (req, res) {
-        res.sendfile(path.resolve('./uploads/image.png'));
-    });
-
->>>>>>> Stashed changes
-    app.get('/dashboard', function (req, res) {
-        // check last owners_id from either signup or signin route
-        console.log('/dashboard thisOwnerId', thisOwnerId);
-        // db call to find all pets belonging to this owner
-        db.pet.findAll({
-            where: {
-                owners_id: thisOwnerId
-            }
-        }).then(function (data) {
-            console.log('this owner has ' + data.length + ' pets');
-            // object to send to handlebars
-            var ownerHbsObject = {foobar: data};
-            res.render('userDashboard', ownerHbsObject);
         });
-    });
 
 
-    // display all pets in pets table on adminDashboard landing page
-    app.get('/adminDashboard', function (req, res) {
-        db.pet.findAll({}).then(function (data) {
-            console.log('there are ' + data.length + ' pets in db');
-            // object to send to handlebars
-            var petsHbsObject = {foobar: data};
-            console.log('petsHbsObject', petsHbsObject);
-            res.render('adminDashboard', petsHbsObject);
+        // display all pets in pets table on adminDashboard landing page
+        app.get('/adminDashboard', function (req, res) {
+            db.pet.findAll({}).then(function (data) {
+                console.log('there are ' + data.length + ' pets in db');
+                // object to send to handlebars
+                var petsHbsObject = {foobar: data};
+                console.log('petsHbsObject', petsHbsObject);
+                res.render('adminDashboard', petsHbsObject);
+            });
         });
-    });
 
 
-    app.get('/selectactivity', function (req, res) {
-        res.render('selectactivity');
-    });
-
-    // activities on /selectactivity endpoint link to /selectactivity/:activity endpoint
-    app.get('/selectactivity/:activity', function (req, res) {
-        // assign selected activity to global var to pass to subsequent page
-        thisActivity = req.params.activity;
-        console.log('activity selected', thisActivity);
-        // db call to display all pets in pets table
-        db.pet.findAll({}).then(function (data) {
-            console.log('pet.findAll data', data);
-            // object to send to handlebars
-            var selectPetHbsObject = {selPet: data};
-            res.render('selectpet', selectPetHbsObject);
+        app.get('/selectactivity', function (req, res) {
+            res.render('selectactivity');
         });
-    });
 
-    // pets on /selectactivity:activity endpoint links to /addevent/:pets_id endpoint
-    app.get('/addevent/:pets_id', function (req, res) {
-        console.log('pet id selected', req.params.pets_id);
-        // assign current pets_id to global var to pass to subsequent page
-        thisPetId = req.params.pets_id;
-        res.render('addevent');
-    });
-
-    // add event to selected pets_id
-    app.post('/addevent', function (req, res) {
-
-        console.log('req.body', req.body);
-        // gather data from form fields and hit Event model
-        db.event.create({
-            // populates pets_id foreign key from global var assigned in addevent get route
-            pets_id: thisPetId,
-            // populates event_type from global var assigned in selectactivity get route
-            event_type: thisActivity,
-            notes: req.body.notes,
-            img_link: req.body.img_link
-        }).then(function (results) {
-            console.log(results);
-            // after adding event, redirect to adminDashboard
-            res.redirect('adminDashboard');
+        // activities on /selectactivity endpoint link to /selectactivity/:activity endpoint
+        app.get('/selectactivity/:activity', function (req, res) {
+            // assign selected activity to global var to pass to subsequent page
+            thisActivity = req.params.activity;
+            console.log('activity selected', thisActivity);
+            // db call to display all pets in pets table
+            db.pet.findAll({}).then(function (data) {
+                console.log('pet.findAll data', data);
+                // object to send to handlebars
+                var selectPetHbsObject = {selPet: data};
+                res.render('selectpet', selectPetHbsObject);
+            });
         });
-    });
 
-    // route to display daily events of pet
-    app.get('/events/:pets_id', function (req, res) {
-        console.log('pet id selected', req.params.pets_id);
-        // hold pets_id from params in variable to do db call
-        thisPetId = req.params.pets_id;
-        console.log('thisPetId', thisPetId);
-        // db call to find pet info (for rendering picture and name on dom)
-        db.pet.findAll({
-            where: {
-                pets_id: thisPetId
-            }
-        }).then(function (result) {
-            // db call to find all events associated with this pet
-            db.event.findAll({
+        // pets on /selectactivity:activity endpoint links to /addevent/:pets_id endpoint
+        app.get('/addevent/:pets_id', function (req, res) {
+            console.log('pet id selected', req.params.pets_id);
+            // assign current pets_id to global var to pass to subsequent page
+            thisPetId = req.params.pets_id;
+            res.render('addevent');
+        });
+
+        // add event to selected pets_id
+        app.post('/addevent', function (req, res) {
+
+            console.log('req.body', req.body);
+            // gather data from form fields and hit Event model
+            db.event.create({
+                // populates pets_id foreign key from global var assigned in addevent get route
+                pets_id: thisPetId,
+                // populates event_type from global var assigned in selectactivity get route
+                event_type: thisActivity,
+                notes: req.body.notes,
+                img_link: req.body.img_link
+            }).then(function (results) {
+                console.log(results);
+                // after adding event, redirect to adminDashboard
+                res.redirect('adminDashboard');
+            });
+        });
+
+        // route to display daily events of pet
+        app.get('/events/:pets_id', function (req, res) {
+            console.log('pet id selected', req.params.pets_id);
+            // hold pets_id from params in variable to do db call
+            thisPetId = req.params.pets_id;
+            console.log('thisPetId', thisPetId);
+            // db call to find pet info (for rendering picture and name on dom)
+            db.pet.findAll({
                 where: {
                     pets_id: thisPetId
-                },
-                order: [
-                    // order descending so newest events are at top of 'event feed'
-                    ['createdAt', 'DESC']
-                ]
-            }).then(function (eventinfo) {
-                // loop through each event
-                for (var i = 0; i < eventinfo.length; i++) {
-                    // determine event_type and inject eventinfo[i].image_name dependent upon event_type
-                    // this passes to handlebars and renders appropriate icon dependent upon event_type
-                    switch (eventinfo[i].event_type) {
-                        case 'Potty':
-                            eventinfo[i].image_name = 'potty';
-                            break;
-                        case 'Incident':
-                            eventinfo[i].image_name = 'incident';
-                            break;
-                        case 'Photo':
-                            eventinfo[i].image_name = 'photo';
-                            break;
-                        case 'Eat':
-                            eventinfo[i].image_name = 'eat';
-                            break;
-                        case 'Exercise':
-                            eventinfo[i].image_name = 'excercise';
-                            break;
-                        case 'Medication':
-                            eventinfo[i].image_name = 'medication';
-                            break;
-                        case 'Note':
-                            eventinfo[i].image_name = 'note';
-                            break;
-                        default:
-                            eventinfo[i].image_name = 'check'
-                    }
                 }
-                // object to send both pet info and events info to handlebars
-                var hbs = {
-                    thisPet: result,
-                    eventHbsObject: eventinfo};
-                res.render('events', hbs);
+            }).then(function (result) {
+                // db call to find all events associated with this pet
+                db.event.findAll({
+                    where: {
+                        pets_id: thisPetId
+                    },
+                    order: [
+                        // order descending so newest events are at top of 'event feed'
+                        ['createdAt', 'DESC']
+                    ]
+                }).then(function (eventinfo) {
+                    // loop through each event
+                    for (var i = 0; i < eventinfo.length; i++) {
+                        // determine event_type and inject eventinfo[i].image_name dependent upon event_type
+                        // this passes to handlebars and renders appropriate icon dependent upon event_type
+                        switch (eventinfo[i].event_type) {
+                            case 'Potty':
+                                eventinfo[i].image_name = 'potty';
+                                break;
+                            case 'Incident':
+                                eventinfo[i].image_name = 'incident';
+                                break;
+                            case 'Photo':
+                                eventinfo[i].image_name = 'photo';
+                                break;
+                            case 'Eat':
+                                eventinfo[i].image_name = 'eat';
+                                break;
+                            case 'Exercise':
+                                eventinfo[i].image_name = 'excercise';
+                                break;
+                            case 'Medication':
+                                eventinfo[i].image_name = 'medication';
+                                break;
+                            case 'Note':
+                                eventinfo[i].image_name = 'note';
+                                break;
+                            default:
+                                eventinfo[i].image_name = 'check'
+                        }
+                    }
+                    // object to send both pet info and events info to handlebars
+                    var hbs = {
+                        thisPet: result,
+                        eventHbsObject: eventinfo
+                    };
+                    res.render('events', hbs);
+                });
             });
+
         });
 
-    });
+        app.get('/logout', function (req, res) {
+            res.redirect('/');
+        });
 
-    app.get('/logout', function (req, res) {
-        res.redirect('/');
-    });
-
-};
+    };
 
 

@@ -1,7 +1,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-     path = require('path'),
-    fs = require('fs'),
+     fileUpload = require('express-fileupload'),
+    aws = require('aws-sdk'),
     logger = require('morgan');
 
 
@@ -14,12 +14,20 @@ var db = require('./app/models');
 
 // Configure morgan
 app.use(logger("dev"));
+app.use(fileUpload({preserveExtension: true}));
 
 // Configure bodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+/*
+ * Load the S3 information from the environment variables.
+ */
+const S3_BUCKET = process.env.S3_BUCKET;
+
+
 
 // Configure Handlebars (hbs)
 var exphbs = require('express-handlebars');
