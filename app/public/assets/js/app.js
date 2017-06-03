@@ -10,3 +10,8 @@ $( "#newUserFormSubmit" ).click(function() {
 });
 
 
+//New user form submission button listener
+/*
+$( "#newUserFormSubmit" ).click(function() {
+    $( "#newUserForm" ).submit();
+});*/
