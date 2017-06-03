@@ -2,7 +2,7 @@
     <div id="main">
 
         <div class="row">
-           {{! {{> iOSstatusbar }}
+            {{! {{> iOSstatusbar }}
             <div class="header">
                 <div class="container page-title-bar nostatus">
                     <div class="col-xs-2 menu-ctrl icon-menu"></div>
@@ -24,7 +24,7 @@
                         <div class="col-xs-12 mypet-row relative">
                             <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
                                  class="img-circle pet-icon checked-in">
-                                <img src="/assets/img/icons/smallcheck.svg" class="checkinbadge"></span>
+                            <img src="/assets/img/icons/smallcheck.svg" class="checkinbadge"></span>
                             <p class="pet-name">{{this.pet_name}}</p>
                         </div>
                     </div>
@@ -47,19 +47,22 @@
 <div class="footer">
     <div class="row">
         <div class="col-xs-4 text-center">
-            <div class="adminfunction"><i class="fa fa-comment-o" aria-hidden="true"></i></div>
-            <div>Messages</div>
+            <div class="adminfunction"><i class="fa fa-comment-o" aria-hidden="true"></i>
+                <div class="adminfunction-text"> Message</div>
+            </div>
         </div>
         <div class="col-xs-4 text-center">
             <a href="/selectactivity">
-                <div class="adminfunction"><i class="fa fa-paw" aria-hidden="true"></i></div>
-                <div>Add Activity</div>
+                <div class="adminfunction"><i class="fa fa-paw" aria-hidden="true"></i>
+                    <div class="adminfunction-text"> Add Activity</div>
+                </div>
             </a>
         </div>
         <div class="col-xs-4 text-center">
             <a href="/check">
-                <div class="adminfunction"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
-                <div>Check-In</div>
+                <div class="adminfunction"><i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <div class="adminfunction-text"> Check in</div>
+                </div>
             </a>
         </div>
     </div>
