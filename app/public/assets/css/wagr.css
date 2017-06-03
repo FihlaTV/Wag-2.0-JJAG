@@ -67,12 +67,29 @@ input {
     bottom: -30px;
 }
 
+.badge-pill {
+    border-radius: 400px;
+    height:3rem;
+}
+
 .btn-file input[type=file] {
     opacity: 0;
 }
 
-.checkin-smallcheck {
-    height: 2.5rem;
+.checkinbadge {
+    height: 3rem;
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+
+}
+
+.checked-in {
+    border: 4px #1c7c7b solid;
+}
+
+.container-bump {
+    margin-top: 75px;
 }
 
 .dailyreport {
@@ -152,6 +169,9 @@ input {
     height: 65px;
     background-color: #47C3C3;
     color: white;
+    position: fixed;
+    z-index: 1;
+    width: 104%;
 }
 
 .hero-bg {
@@ -167,6 +187,10 @@ input {
     width: 100%;
     background-color: #ddd;
     margin-bottom: 1.5rem;
+}
+
+.hero-bump {
+    margin-top: 65px;
 }
 
 .hero-img {
@@ -194,6 +218,13 @@ input {
 .iphoneStatus {
     margin: 0;
     display: inline-block;
+}
+
+.logout-ctrl {
+    font-size: 1.7rem;
+    position: relative;
+    bottom: -30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .menu-ctrl {
@@ -318,6 +349,8 @@ input {
 .form-control:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
+
+
 
 
 
