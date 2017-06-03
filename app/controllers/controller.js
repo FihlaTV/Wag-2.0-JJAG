@@ -303,6 +303,56 @@ module.exports = function (app) {
         res.redirect('/');
     });
 
+    // route to check in/out page
+    app.get('/check', function (req, res) {
+        // db call to display all pets in pets table
+        db.pet.findAll({}).then(function (data) {
+            // object to send to handlebars
+            var selectPetHbsObject2 = {selPet: data};
+            res.render('checkinout', selectPetHbsObject2);
+        });
+
+    });
+
+    // check in or our specific pet
+    app.get('/check/:pets_id', function (req, res) {
+        var thisPet = req.params.pets_id;
+        console.log('pet checking', thisPet);
+
+        db.pet.findAll({
+            where: {
+                pets_id: thisPet
+            }
+        }).then(function (data) {
+            console.log('pre if statement');
+            console.log(data[0].checkedIn);
+
+            if (data[0].checkedIn) {
+                console.log('checking out ' + data[0].pets_id);
+                db.pet.update({
+                    checkedIn: 0
+                }, {
+                    where: {
+                        pets_id: thisPet
+                    }
+                }).then(function () {
+                    res.redirect('/check');
+                });
+            } else {
+                console.log('checking in ' + data[0].pets_id);
+                db.pet.update({
+                    checkedIn: 1
+                }, {
+                    where: {
+                        pets_id: thisPet
+                    }
+                }).then(function () {
+                    res.redirect('/check');
+                });
+            }
+        });
+    });
+
 };
 
 
