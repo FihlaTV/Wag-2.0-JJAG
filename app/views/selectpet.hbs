@@ -6,7 +6,9 @@
 
             <div class="header">
                 <div class="container page-title-bar">
-                    <div class="col-xs-2 menu-ctrl icon-arrow-left"></div>
+                    <a href="javascript:history.back()">
+                        <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                    </a>
                     <div class="col-xs-8 text-center page-title">
                         Select Pet
                     </div>
@@ -14,7 +16,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row container-bump">
             <div class="col-xs-12">
 
                 {{#each selPet}}
@@ -23,8 +25,9 @@
                         <div class="col-xs-2 text-center">
                             <a href="/addevent/{{this.pets_id}}">
                                 <figure>
-                                    <img src="{{this.img_link}}" alt="" data-id="{{this.pets_id}}"
-                                         class="img-circle pet-icon">
+                                    <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
+                                         class="img-circle pet-icon checked-in">
+                                    <img src="/assets/img/icons/smallcheck.svg" class="checkinbadge"></span>
                                     <figcaption>{{this.pet_name}}</figcaption>
                                 </figure>
                             </a>
