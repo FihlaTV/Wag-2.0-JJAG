@@ -17,7 +17,8 @@ a, a:active {
 
 figcaption {
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-top: 1rem;
 }
 
 input {
@@ -81,7 +82,13 @@ input {
     position: absolute;
     left: 5px;
     bottom: 10px;
+}
 
+.checkinbadge-petselect {
+    height: 3rem;
+    position: absolute;
+    left: 5px;
+    bottom: 35px;
 }
 
 .checked-in {
@@ -130,6 +137,8 @@ input {
     font-size: 1.6rem;
     font-weight: 500;
 }
+
+.fig
 
 .footer {
     height: 60px;
@@ -203,6 +212,14 @@ input {
     width: 100%;
 }
 
+.img-label {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 1rem;
+    position: relative;
+    left:-3px;
+}
+
 .ios-battery {
     margin-right: 1rem;
 }
@@ -256,6 +273,12 @@ input {
     margin: 15px 15px 15px 0;
     height: 75px;
     float: left;
+}
+
+.pet-icon-select {
+    margin: 45px 15px 10px 0;
+    height: 75px;
+    /*float: left;*/
 }
 
 .pet-name {
