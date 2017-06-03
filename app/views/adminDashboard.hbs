@@ -2,36 +2,29 @@
     <div id="main">
 
         <div class="row">
-            <div class="col-xs-4 text-left">
-                <img src="/assets/img/icons/iOSsignal.svg" alt="" class="ios-signal">
-            </div>
-            <div class="col-xs-4 text-center">
-                <img src="/assets/img/icons/iOStime.svg" alt="">
-            </div>
-            <div class="col-xs-4 text-right">
-                <img src="/assets/img/icons/iOSbattery.svg" alt="" class="ios-battery">
-            </div>
+           {{! {{> iOSstatusbar }}
             <div class="header">
-                <div class="container page-title-bar">
+                <div class="container page-title-bar nostatus">
                     <div class="col-xs-2 menu-ctrl icon-menu"></div>
                     <div class="col-xs-8 text-center page-title">
                         Dashboard
                     </div>
                     <a href="/logout">
-                        <div class="col-xs-2 text-right plus-ctrl">Logout</div>
+                        <div class="col-xs-2 text-right logout-ctrl">Logout</div>
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="container ipad-sidebump">
+        <div class="container ipad-sidebump container-bump">
 
             {{#each foobar}}
                 {{#if this.checkedIn}}
                     <div class="row">
-                        <div class="col-xs-12 mypet-row">
+                        <div class="col-xs-12 mypet-row relative">
                             <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
-                                 class="img-circle pet-icon">
+                                 class="img-circle pet-icon checked-in">
+                                <img src="/assets/img/icons/smallcheck.svg" class="checkinbadge"></span>
                             <p class="pet-name">{{this.pet_name}}</p>
                         </div>
                     </div>
