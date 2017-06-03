@@ -2,10 +2,10 @@
     <div id="main">
         <div class="row">
 
-            {{> iOSstatusbar }}
+            {{! {{> iOSstatusbar }}
 
             <div class="header">
-                <div class="container page-title-bar">
+                <div class="container page-title-bar nostatus">
                     <a href="/adminDashboard">
                         <div class="col-xs-2 menu-ctrl icon-arrow-left"></div>
                     </a>
@@ -19,39 +19,37 @@
         <div class="row container-bump">
             <div class="col-xs-12">
 
-                {{#each selPet}}
+                <div class="container ipad-sidebump">
 
-                    {{#if this.checkedIn}}
-                        <div class="col-xs-2 text-center">
-                            <a href="/check/{{this.pets_id}}">
-                                <figure>
+                    {{#each selPet}}
+
+                        {{#if this.checkedIn}}
+                            <div class="col-xs-2 text-center">
+                                <a href="/check/{{this.pets_id}}">
                                     <img src="{{this.img_link}}" alt="" data-id="{{this._id}}"
-                                         class="img-circle pet-icon checked-in">
-                                    <img src="/assets/img/icons/smallcheck.svg" class="checkinbadge"></span>
-                                    <figcaption>{{this.pet_name}}</figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                    {{/if}}
+                                         class="img-circle pet-icon-select checked-in">
+                                    <span><img src="/assets/img/icons/smallcheck.svg"
+                                               class="checkinbadge-petselect"></span>
+                                </a>
+                                <span class="img-label">{{this.pet_name}}</span>
+                            </div>
+                        {{/if}}
 
-                    {{#unless this.checkedIn}}
-                        <div class="col-xs-2 text-center">
-                            <a href="/check/{{this.pets_id}}">
-                                <figure>
+                        {{#unless this.checkedIn}}
+                            <div class="col-xs-2 text-center">
+                                <a href="/check/{{this.pets_id}}">
                                     <img src="{{this.img_link}}" alt="" data-id="{{this.pets_id}}"
-                                         class="img-circle pet-icon absent">
-                                    <figcaption>{{this.pet_name}}</figcaption>
-                                </figure>
-                            </a>
-                        </div>
-                    {{/unless}}
+                                         class="img-circle pet-icon-select absent">
+                                </a>
+                                <span class="img-label">{{this.pet_name}}</span>
+                            </div>
+                        {{/unless}}
 
-                {{/each}}
+                    {{/each}}
 
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
-
-
