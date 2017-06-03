@@ -1,46 +1,60 @@
 <div id="container">
     <div id="main">
-        <div class="row">
+
+        <div class="row relative">
+            {{! {{> iOSstatusbar }}
             <div class="header">
-                <div class="container">
-                    <a href="/adminDashboard">
-                        <div class="col-xs-2 cancel-ctrl">Cancel</div>
+                <div class="container page-title-bar nostatus">
+                    <a href="javascript:history.back()">
+                        <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
                     </a>
                     <div class="col-xs-8 text-center page-title">
-                       <h2>Add Event</h2>
+                        Add Event
                     </div>
-                    <!--<div class="col-xs-2 text-right bubble-ctrl icon-bubble"></div>-->
                 </div>
             </div>
+
+
+            <form id="addevent" name="addevent" method="post" action="/addevent">
+
+                <div class="container container-bump">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                                <div class="text-center">
+                                    <h2><i class="fa fa-paw"></i> Wagr</h2>
+                                    <h4>Tell our owners how much fun their loved ones are having.</h4>
+
+                                    <hr>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="notes">Event Notes</label>
+                                    <input name="notes" id="inputNotes" type="text" class="form-control"/> <br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="img_link">Link to Image</label>
+                                    <input name="img_link" id="img_link" type="text" class="form-control"/> <br>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
         </div>
-
-        <div class="row event-spacer-row"></div>
-
-
-        <style>
-            .header {
-            height: 65px;
-            background-color: #47C3C3;
-            color: white;
-        }
-
-                .event-spacer-row {
-                    margin-bottom: 100px;
-            }
+    </div>
+</div>
+<div class="footer text-center">
+    <p class="footer-userform" id="addEventFormSubmit">SUBMIT</p>
+</div>
 
 
 
-        </style>
 
 
-
-<form id="addevent" name="addevent" method="post" action="/addevent">
-    <!--<label for="event_type">Event Type</label>-->
-    <!--<input class="text" name="event_type" type="text"/> <br>-->
-    <label for="notes">Any notes</label>
-    <input name="notes" type="text"/> <br>
-    <label for="img_link">Link to Image</label>
-    <input name="img_link" type="text"/> <br>
-
-    <input class="btn" type="submit" value="Add"/>
-</form>

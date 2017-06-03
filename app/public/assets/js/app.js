@@ -9,4 +9,9 @@ $( "#newUserFormSubmit" ).click(function() {
     $( "#newUserForm" ).submit();
 });
 
+//New user form submission button listener
+$( "#addEventFormSubmit" ).click(function() {
+    $( "#addevent" ).submit();
+});
+
 
