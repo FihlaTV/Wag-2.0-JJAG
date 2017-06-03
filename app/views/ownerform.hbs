@@ -1,11 +1,13 @@
 <div id="container">
     <div id="main">
 
-        <div class="row">
-            {{> iOSstatusbar }}
+        <div class="row relative">
+            {{! {{> iOSstatusbar }}
             <div class="header">
-                <div class="container page-title-bar">
-                    <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                <div class="container page-title-bar nostatus">
+                    <a href="javascript:history.back()">
+                        <div class="col-xs-2 back-ctrl icon-arrow-left"></div>
+                    </a>
                     <div class="col-xs-8 text-center page-title">
                         New User Form
                     </div>
@@ -18,6 +20,13 @@
                     <div class="row">
                         <div class="container">
                             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+                                <div class="text-center">
+                                    <h2><i class="fa fa-paw"></i> Welcome</h2>
+                                    <h4>We need to gather a little info to keep you connected with your pet</h4>
+
+                                    <hr>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="inputFirstName">First Name</label>
@@ -64,8 +73,9 @@
             </form>
         </div>
     </div>
-</div>
-<div class="footer text-center">
-    <p class="footer-text" id="newUserFormSubmit">SUBMIT</p>
+    <div class="footer text-center">
+        <p class="footer-userform" id="newUserFormSubmit">SUBMIT</p>
+        <p class="footer-subtext">Next lets add your pet(s)</p>
+    </div>
 </div>
 
